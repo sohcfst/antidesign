@@ -28,18 +28,27 @@ const Img = styled('img', {
   position: 'absolute',
   top: 0,
   left: 0,
+  // '&:hover': 'transform(scale(1.2))',
 });
 
 interface MemoryProps {
   src: string;
   scrollOffset?: number;
-  initialOffset: number;
+  initialTopOffset: number;
+  scale: number;
+  left: number;
 }
 
-const Memory = ({ src, scrollOffset, initialOffset }: MemoryProps) => {
+const Memory = ({
+  src,
+  scrollOffset,
+  initialTopOffset,
+  scale,
+  left,
+}: MemoryProps) => {
   const translateUtil = () => {
     return `translateY(${
-      scrollOffset ? scrollOffset * -0.9 + initialOffset : initialOffset
+      scrollOffset ? scrollOffset * -scale + initialTopOffset : initialTopOffset
     }px)`;
   };
 
@@ -50,24 +59,37 @@ const Memory = ({ src, scrollOffset, initialOffset }: MemoryProps) => {
       css={{
         position: 'absolute',
         borderRadius: 8,
-        left: 100,
+        left,
         transform: translateUtil(),
       }}
     />
   );
 };
 
-const MemoryContainer = () => {
-  return (
-    <>
-      {urls.map((url) => (
-        <Memory src={url} initialOffset={100} />
-      ))}
-    </>
-  );
-};
+// const MemoryContainer = ({ offset, scrollOffset }) => {
+//   return (
+//     <>
+//       {urls.map((url, i) => (
+//         <Memory
+//           key={url}
+//           src={url}
+//           initialOffset={i * 600 + offset}
+//           scrollOffset={scrollOffset}
+//         />
+//       ))}
+//     </>
+//   );
+// };
 
-const MemoryScroller = () => {
+const MemoryScroller = ({
+  arr = [
+    0.1, 0.6, -0.7, 0.4, -0.5, 0.6, 0.7, -0.1, 0.5, -0.4, 0.4, -0.5, 0.5, 0.3,
+    0.1, 0.9, 0.6, -0.4, 0.5, 0.6, -0.7, 0.1, 0.6, 0.7, 0.4, -0.5, 0.6, 0.3,
+    -0.1, 0.5, -0.4, 0.4, 0.5, 0.5, -0.7, 0.1, 0.9, 0.6, 0.4, 0.5, 0.6, 0.3,
+    0.1, 0.6, -0.7, 0.4, 0.5, 0.6, 0.7, -0.1, 0.5, 0.4, 0.4, -0.5, 0.5, 0.7,
+    0.1, 0.9, 0.6, -0.4, 0.5, 0.6, -0.7,
+  ],
+}) => {
   const ref = useRef<HTMLDivElement>(null);
 
   const [offset, setOffset] = useState(ref.current?.scrollTop);
@@ -90,7 +112,49 @@ const MemoryScroller = () => {
             alignItems="center"
             position={'relative'}
           >
-            <MemoryContainer />
+            {arr.map((key, i) => {
+              return (
+                <Memory
+                  key={key}
+                  scrollOffset={offset}
+                  initialTopOffset={i * 100}
+                  src={urls[0]}
+                  scale={key}
+                  left={1000 * key}
+                />
+              );
+            })}
+
+            {/* <Memory
+              scrollOffset={offset}
+              initialTopOffset={300}
+              src={urls[0]}
+              scale={0.8}
+            />
+            <Memory
+              scrollOffset={offset}
+              initialTopOffset={600}
+              src={urls[0]}
+              scale={0.5}
+            />
+            <Memory
+              scrollOffset={offset}
+              initialTopOffset={900}
+              src={urls[0]}
+              scale={0.2}
+            />
+            <Memory
+              scrollOffset={offset}
+              initialTopOffset={1200}
+              src={urls[0]}
+              scale={0.8}
+            />
+            <Memory
+              scrollOffset={offset}
+              initialTopOffset={1500}
+              src={urls[0]}
+              scale={0.5}
+            /> */}
           </Flex>
         </ScrollAreaViewport>
 

@@ -6,6 +6,7 @@ const Flex = styled('div', {
 
 export default function Index() {
   globalStyles();
+
   return (
     <Flex
       css={{

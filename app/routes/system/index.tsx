@@ -18,6 +18,7 @@ export const loader: LoaderFunction = async () => {
   const data: LoaderData = {
     images: await db.image.findMany(),
   };
+
   return data;
 };
 
