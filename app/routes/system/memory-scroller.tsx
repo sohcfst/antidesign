@@ -2,6 +2,7 @@ import { styled } from '~/styles/stitches.config';
 
 import { violet, mauve, blackA } from '@radix-ui/colors';
 import * as ScrollAreaPrimitive from '@radix-ui/react-scroll-area';
+import { Flex } from '~/components/Flex';
 
 const SCROLLBAR_SIZE = 10;
 
@@ -98,37 +99,17 @@ const urls = [GG_BRIDGE, HEAVEN, LAKE_MERRIT];
 
 // is there an easy way to figure out what element we're inspecting? that's something i like about styled components
 
-const Flex = styled('div', {
-  display: 'flex',
-
-  // without passing any values the api expose, then the element will
-  // only use the the base styles we set at the top
-  variants: {
-    // the prop / api that we expose
-    flexDirection: {
-      // the options that we have and the style that will apply when we pass this value
-      // into the the prop / api
-      column: {
-        flexDirection: 'column',
-      },
-      row: {
-        flexDirection: 'row',
-      },
-    },
-    // etc
-    alignItems: {
-      center: {
-        alignItems: 'center',
-      },
-      start: {
-        alignItems: 'start',
-      },
-      // etc
-    },
-  },
+const Img = styled('img', {
+  position: 'absolute',
 });
-const Img = styled('img');
-const Memory = () => {};
+
+interface MemoryProps {
+  src: string;
+}
+
+const Memory = ({ src }: MemoryProps) => {
+  return <Img src={src} />;
+};
 
 const MemoryScroller = () => {
   return (
@@ -141,7 +122,11 @@ const MemoryScroller = () => {
     >
       <ScrollArea>
         <ScrollAreaViewport>
-          <Flex flexDirection="column" alignItems="center">
+          <Flex
+            flexDirection="column"
+            alignItems="center"
+            position={'relative'}
+          >
             <Img src={GG_BRIDGE} width={400} />
             <Img src={LAKE_MERRIT} width={400} />
             <Img src={HEAVEN} width={400} />
