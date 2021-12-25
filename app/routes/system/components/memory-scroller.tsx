@@ -1,75 +1,15 @@
 import { styled } from '~/styles/stitches.config';
-import { ParallaxProvider, Parallax } from 'react-scroll-parallax';
-import { mauve, blackA } from '@radix-ui/colors';
-import * as ScrollAreaPrimitive from '@radix-ui/react-scroll-area';
+
 import { Flex } from '~/components/Flex';
 import { useEffect, useRef, useState } from 'react';
 
-const SCROLLBAR_SIZE = 10;
-
-const StyledScrollArea = styled(ScrollAreaPrimitive.Root, {
-  width: 1000,
-  height: 1000,
-  // borderRadius: 8,
-  overflow: 'hidden',
-  display: 'flex',
-  justifyContent: 'center',
-});
-
-const StyledViewport = styled(ScrollAreaPrimitive.Viewport, {
-  width: '100%',
-  height: '100%',
-  justifySelf: 'center',
-  borderRadius: 'inherit',
-  boxShadow: 'inset 0 -20px white',
-});
-
-const StyledScrollbar = styled(ScrollAreaPrimitive.Scrollbar, {
-  display: 'flex',
-  // ensures no selection
-  userSelect: 'none',
-  // disable browser handling of all panning and zooming gestures on touch devices
-  touchAction: 'none',
-  padding: 2,
-  background: blackA.blackA6,
-  transition: 'background 160ms ease-out',
-  '&:hover': { background: blackA.blackA8 },
-  '&[data-orientation="vertical"]': { width: SCROLLBAR_SIZE },
-  '&[data-orientation="horizontal"]': {
-    flexDirection: 'column',
-    height: SCROLLBAR_SIZE,
-  },
-});
-
-const StyledThumb = styled(ScrollAreaPrimitive.Thumb, {
-  flex: 1,
-  background: mauve.mauve10,
-  borderRadius: SCROLLBAR_SIZE,
-  // increase target size for touch devices https://www.w3.org/WAI/WCAG21/Understanding/target-size.html
-  position: 'relative',
-  '&::before': {
-    content: '""',
-    position: 'absolute',
-    top: '50%',
-    left: '50%',
-    transform: 'translate(-50%, -50%)',
-    width: '100%',
-    height: '100%',
-    minWidth: 44,
-    minHeight: 44,
-  },
-});
-
-const StyledCorner = styled(ScrollAreaPrimitive.Corner, {
-  background: blackA.blackA8,
-});
-
-// Exports
-const ScrollArea = StyledScrollArea;
-const ScrollAreaViewport = StyledViewport;
-const ScrollAreaScrollbar = StyledScrollbar;
-const ScrollAreaThumb = StyledThumb;
-const ScrollAreaCorner = StyledCorner;
+import {
+  ScrollArea,
+  ScrollAreaCorner,
+  ScrollAreaScrollbar,
+  ScrollAreaThumb,
+  ScrollAreaViewport,
+} from '~/components/MemoryScroller/StyledMemoryScroller';
 
 const LAKE_MERRIT =
   'https://avfdzphxkehjacxeupkt.supabase.in/storage/v1/object/sign/images/char.jpg?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJpbWFnZXMvY2hhci5qcGciLCJpYXQiOjE2NDA0NTkxODcsImV4cCI6MTk1NTgxOTE4N30.Z4hWTTO1EoWPatxzmN4VhlSC5leeek71k_WXjA_GSWo';
@@ -92,20 +32,17 @@ const Img = styled('img', {
 
 interface MemoryProps {
   src: string;
-  scrollPosition?: number;
+  scrollOffset?: number;
+  initialOffset: number;
 }
 
-const Memory1 = ({ src }: MemoryProps) => {
-  return (
-    <Img
-      src={src}
-      width={400}
-      css={{ position: 'absolute', borderRadius: 8 }}
-    />
-  );
-};
+const Memory = ({ src, scrollOffset, initialOffset }: MemoryProps) => {
+  const translateUtil = () => {
+    return `translateY(${
+      scrollOffset ? scrollOffset * -0.9 + initialOffset : initialOffset
+    }px)`;
+  };
 
-const Memory2 = ({ src, scrollPosition }: MemoryProps) => {
   return (
     <Img
       src={src}
@@ -113,21 +50,9 @@ const Memory2 = ({ src, scrollPosition }: MemoryProps) => {
       css={{
         position: 'absolute',
         borderRadius: 8,
-        left: 300,
-        transform: `translateY(${
-          scrollPosition ? scrollPosition * 0.5 + 400 : 400
-        }px)`,
+        left: 100,
+        transform: translateUtil(),
       }}
-    />
-  );
-};
-
-const Memory3 = ({ src }: MemoryProps) => {
-  return (
-    <Img
-      src={src}
-      width={400}
-      css={{ position: 'absolute', borderRadius: 8, top: 2000 }}
     />
   );
 };
@@ -136,7 +61,7 @@ const MemoryContainer = () => {
   return (
     <>
       {urls.map((url) => (
-        <Memory1 src={url} />
+        <Memory src={url} initialOffset={100} />
       ))}
     </>
   );
@@ -165,9 +90,7 @@ const MemoryScroller = () => {
             alignItems="center"
             position={'relative'}
           >
-            <Memory1 src={GG_BRIDGE} />
-            <Memory2 src={LAKE_MERRIT} scrollPosition={offset} />
-            <Memory3 src={HEAVEN} />
+            <MemoryContainer />
           </Flex>
         </ScrollAreaViewport>
 
