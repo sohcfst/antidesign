@@ -5,7 +5,7 @@ import { styled } from '~/styles/stitches.config';
 const SCROLLBAR_SIZE = 10;
 
 const StyledScrollArea = styled(ScrollAreaPrimitive.Root, {
-  width: 1000,
+  width: '100vw',
   height: 1000,
   overflow: 'hidden',
   display: 'flex',

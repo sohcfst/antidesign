@@ -84,10 +84,7 @@ const Memory = ({
 const MemoryScroller = ({
   arr = [
     0.1, 0.6, -0.7, 0.4, -0.5, 0.6, 0.7, -0.1, 0.5, -0.4, 0.4, -0.5, 0.5, 0.3,
-    0.1, 0.9, 0.6, -0.4, 0.5, 0.6, -0.7, 0.1, 0.6, 0.7, 0.4, -0.5, 0.6, 0.3,
-    -0.1, 0.5, -0.4, 0.4, 0.5, 0.5, -0.7, 0.1, 0.9, 0.6, 0.4, 0.5, 0.6, 0.3,
-    0.1, 0.6, -0.7, 0.4, 0.5, 0.6, 0.7, -0.1, 0.5, 0.4, 0.4, -0.5, 0.5, 0.7,
-    0.1, 0.9, 0.6, -0.4, 0.5, 0.6, -0.7,
+    -0.1, 0.9, 0.6, -0.4, 0.5, 0.6, -0.7, 0.1, 0.6, 0.7, 0.4, -0.5, 0.6, 0.3,
   ],
 }) => {
   const ref = useRef<HTMLDivElement>(null);
@@ -124,37 +121,6 @@ const MemoryScroller = ({
                 />
               );
             })}
-
-            {/* <Memory
-              scrollOffset={offset}
-              initialTopOffset={300}
-              src={urls[0]}
-              scale={0.8}
-            />
-            <Memory
-              scrollOffset={offset}
-              initialTopOffset={600}
-              src={urls[0]}
-              scale={0.5}
-            />
-            <Memory
-              scrollOffset={offset}
-              initialTopOffset={900}
-              src={urls[0]}
-              scale={0.2}
-            />
-            <Memory
-              scrollOffset={offset}
-              initialTopOffset={1200}
-              src={urls[0]}
-              scale={0.8}
-            />
-            <Memory
-              scrollOffset={offset}
-              initialTopOffset={1500}
-              src={urls[0]}
-              scale={0.5}
-            /> */}
           </Flex>
         </ScrollAreaViewport>
 
