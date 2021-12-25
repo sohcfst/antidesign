@@ -1,9 +1,9 @@
 import { styled } from '~/styles/stitches.config';
-
+import { ParallaxProvider, Parallax } from 'react-scroll-parallax';
 import { mauve, blackA } from '@radix-ui/colors';
 import * as ScrollAreaPrimitive from '@radix-ui/react-scroll-area';
 import { Flex } from '~/components/Flex';
-import { useEffect, useRef } from 'react';
+import { useEffect, useRef, useState } from 'react';
 
 const SCROLLBAR_SIZE = 10;
 
@@ -92,6 +92,7 @@ const Img = styled('img', {
 
 interface MemoryProps {
   src: string;
+  scrollPosition?: number;
 }
 
 const Memory1 = ({ src }: MemoryProps) => {
@@ -104,35 +105,29 @@ const Memory1 = ({ src }: MemoryProps) => {
   );
 };
 
-const Memory2 = ({ src }: MemoryProps) => {
+const Memory2 = ({ src, scrollPosition }: MemoryProps) => {
   return (
     <Img
       src={src}
       width={400}
-      css={{ position: 'absolute', borderRadius: 8, top: 400 }}
+      css={{
+        position: 'absolute',
+        borderRadius: 8,
+        left: 300,
+        transform: `translateY(${
+          scrollPosition ? scrollPosition * 0.5 + 400 : 400
+        }px)`,
+      }}
     />
   );
 };
 
 const Memory3 = ({ src }: MemoryProps) => {
-  const ref = useRef();
-
-  useEffect(() => {
-    window.addEventListener('scroll', () => {
-      console.log(window.scrollY);
-      const img = ref.current;
-      if (img) {
-        console.log(img.scrollY);
-      }
-    });
-  }, [ref]);
-
   return (
     <Img
-      ref={ref}
       src={src}
       width={400}
-      css={{ position: 'absolute', borderRadius: 8, top: 30000 }}
+      css={{ position: 'absolute', borderRadius: 8, top: 2000 }}
     />
   );
 };
@@ -148,17 +143,9 @@ const MemoryContainer = () => {
 };
 
 const MemoryScroller = () => {
-  // const ref = useRef();
+  const ref = useRef<HTMLDivElement>(null);
 
-  // useEffect(() => {
-  //   ref.addEventListener('scroll', () => {
-  //     console.log(window.scrollY);
-  //     const img = ref.current;
-  //     if (img) {
-  //       console.log(img.scrollY);
-  //     }
-  //   });
-  // }, [ref]);
+  const [offset, setOffset] = useState(ref.current?.scrollTop);
 
   return (
     <Flex
@@ -169,14 +156,17 @@ const MemoryScroller = () => {
       alignItems="center"
     >
       <ScrollArea onScroll={(e) => console.log(e)}>
-        <ScrollAreaViewport onScroll={(e) => console.log(e.target.scrollTop)}>
+        <ScrollAreaViewport
+          ref={ref}
+          onScroll={() => setOffset(ref.current?.scrollTop)}
+        >
           <Flex
             flexDirection="column"
             alignItems="center"
             position={'relative'}
           >
             <Memory1 src={GG_BRIDGE} />
-            <Memory2 src={LAKE_MERRIT} />
+            <Memory2 src={LAKE_MERRIT} scrollPosition={offset} />
             <Memory3 src={HEAVEN} />
           </Flex>
         </ScrollAreaViewport>
