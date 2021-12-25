@@ -1,6 +1,6 @@
 import { styled } from '~/styles/stitches.config';
 
-import { violet, mauve, blackA } from '@radix-ui/colors';
+import { mauve, blackA } from '@radix-ui/colors';
 import * as ScrollAreaPrimitive from '@radix-ui/react-scroll-area';
 import { Flex } from '~/components/Flex';
 
@@ -71,21 +71,6 @@ const ScrollAreaScrollbar = StyledScrollbar;
 const ScrollAreaThumb = StyledThumb;
 const ScrollAreaCorner = StyledCorner;
 
-// Your app...
-
-const Tag = styled('div', {
-  color: mauve.mauve12,
-  fontSize: 13,
-  lineHeight: '18px',
-  marginTop: 10,
-  borderTop: `1px solid ${mauve.mauve6}`,
-  paddingTop: 10,
-});
-
-const TAGS = Array.from({ length: 50 }).map(
-  (_, i, a) => `v1.2.0-beta.${a.length - i}`
-);
-
 const LAKE_MERRIT =
   'https://avfdzphxkehjacxeupkt.supabase.in/storage/v1/object/sign/images/char.jpg?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJpbWFnZXMvY2hhci5qcGciLCJpYXQiOjE2NDA0NTkxODcsImV4cCI6MTk1NTgxOTE4N30.Z4hWTTO1EoWPatxzmN4VhlSC5leeek71k_WXjA_GSWo';
 
@@ -108,7 +93,13 @@ interface MemoryProps {
 }
 
 const Memory = ({ src }: MemoryProps) => {
-  return <Img src={src} />;
+  return (
+    <Img
+      src={src}
+      width={400}
+      css={{ position: 'absolute', borderRadius: 8 }}
+    />
+  );
 };
 
 const MemoryScroller = () => {
@@ -127,29 +118,16 @@ const MemoryScroller = () => {
             alignItems="center"
             position={'relative'}
           >
-            <Img src={GG_BRIDGE} width={400} />
-            <Img src={LAKE_MERRIT} width={400} />
-            <Img src={HEAVEN} width={400} />
-            <Img src={GG_BRIDGE} width={400} />
-            <Img src={LAKE_MERRIT} width={400} />
-            <Img src={HEAVEN} width={400} />
-            <Img src={GG_BRIDGE} width={400} />
-            <Img src={LAKE_MERRIT} width={400} />
-            <Img src={HEAVEN} width={400} />
-            <Img src={GG_BRIDGE} width={400} />
-            <Img src={LAKE_MERRIT} width={400} />
-            <Img src={HEAVEN} width={400} />
-            <Img src={GG_BRIDGE} width={400} />
-            <Img src={LAKE_MERRIT} width={400} />
-            <Img src={HEAVEN} width={400} />
+            <Memory src={GG_BRIDGE} />
+            <Memory src={LAKE_MERRIT} />
+            <Memory src={HEAVEN} />
           </Flex>
         </ScrollAreaViewport>
+
         <ScrollAreaScrollbar orientation="vertical">
           <ScrollAreaThumb />
         </ScrollAreaScrollbar>
-        <ScrollAreaScrollbar orientation="horizontal">
-          <ScrollAreaThumb />
-        </ScrollAreaScrollbar>
+
         <ScrollAreaCorner />
       </ScrollArea>
     </Flex>
