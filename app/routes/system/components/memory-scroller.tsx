@@ -3,18 +3,17 @@ import { styled } from '~/styles/stitches.config';
 import { mauve, blackA } from '@radix-ui/colors';
 import * as ScrollAreaPrimitive from '@radix-ui/react-scroll-area';
 import { Flex } from '~/components/Flex';
+import { useEffect, useRef } from 'react';
 
 const SCROLLBAR_SIZE = 10;
 
 const StyledScrollArea = styled(ScrollAreaPrimitive.Root, {
   width: 1000,
   height: 1000,
-  borderRadius: 8,
+  // borderRadius: 8,
   overflow: 'hidden',
-  boxShadow: `0 2px 10px ${blackA.blackA7}`,
   display: 'flex',
   justifyContent: 'center',
-  // boxs: '120px 80px 40px 20px #0ff',
 });
 
 const StyledViewport = styled(ScrollAreaPrimitive.Viewport, {
@@ -22,6 +21,7 @@ const StyledViewport = styled(ScrollAreaPrimitive.Viewport, {
   height: '100%',
   justifySelf: 'center',
   borderRadius: 'inherit',
+  boxShadow: 'inset 0 -20px white',
 });
 
 const StyledScrollbar = styled(ScrollAreaPrimitive.Scrollbar, {
@@ -86,13 +86,15 @@ const urls = [GG_BRIDGE, HEAVEN, LAKE_MERRIT];
 
 const Img = styled('img', {
   position: 'absolute',
+  top: 0,
+  left: 0,
 });
 
 interface MemoryProps {
   src: string;
 }
 
-const Memory = ({ src }: MemoryProps) => {
+const Memory1 = ({ src }: MemoryProps) => {
   return (
     <Img
       src={src}
@@ -102,7 +104,62 @@ const Memory = ({ src }: MemoryProps) => {
   );
 };
 
+const Memory2 = ({ src }: MemoryProps) => {
+  return (
+    <Img
+      src={src}
+      width={400}
+      css={{ position: 'absolute', borderRadius: 8, top: 400 }}
+    />
+  );
+};
+
+const Memory3 = ({ src }: MemoryProps) => {
+  const ref = useRef();
+
+  useEffect(() => {
+    window.addEventListener('scroll', () => {
+      console.log(window.scrollY);
+      const img = ref.current;
+      if (img) {
+        console.log(img.scrollY);
+      }
+    });
+  }, [ref]);
+
+  return (
+    <Img
+      ref={ref}
+      src={src}
+      width={400}
+      css={{ position: 'absolute', borderRadius: 8, top: 30000 }}
+    />
+  );
+};
+
+const MemoryContainer = () => {
+  return (
+    <>
+      {urls.map((url) => (
+        <Memory1 src={url} />
+      ))}
+    </>
+  );
+};
+
 const MemoryScroller = () => {
+  // const ref = useRef();
+
+  // useEffect(() => {
+  //   ref.addEventListener('scroll', () => {
+  //     console.log(window.scrollY);
+  //     const img = ref.current;
+  //     if (img) {
+  //       console.log(img.scrollY);
+  //     }
+  //   });
+  // }, [ref]);
+
   return (
     <Flex
       css={{
@@ -111,16 +168,16 @@ const MemoryScroller = () => {
       flexDirection="column"
       alignItems="center"
     >
-      <ScrollArea>
-        <ScrollAreaViewport>
+      <ScrollArea onScroll={(e) => console.log(e)}>
+        <ScrollAreaViewport onScroll={(e) => console.log(e.target.scrollTop)}>
           <Flex
             flexDirection="column"
             alignItems="center"
             position={'relative'}
           >
-            <Memory src={GG_BRIDGE} />
-            <Memory src={LAKE_MERRIT} />
-            <Memory src={HEAVEN} />
+            <Memory1 src={GG_BRIDGE} />
+            <Memory2 src={LAKE_MERRIT} />
+            <Memory3 src={HEAVEN} />
           </Flex>
         </ScrollAreaViewport>
 
