@@ -1,12 +1,13 @@
-import { purple, sky } from '@radix-ui/colors';
+import { blackA, purple, sky } from '@radix-ui/colors';
 import { Parallax, ParallaxProvider } from 'react-scroll-parallax';
 import { Flex } from '~/components/Flex';
 import { NoiseBackground } from '~/components/Noise';
-import { styled } from '~/styles/stitches.config';
+import { styled, keyframes } from '~/styles/stitches.config';
 import { GG_BRIDGE } from './system/components/memory-scroller';
+import * as DialogPrimitive from '@radix-ui/react-dialog';
 
 const Image = styled('img', {
-  maxWidth: 400,
+  maxWidth: 1000,
   borderRadius: 4,
   boxShadow: `  0 1px 1px hsl(0deg 0% 0% / 0.075),
   0 2px 2px hsl(0deg 0% 0% / 0.075),
@@ -16,6 +17,27 @@ const Image = styled('img', {
   zIndex: -1,
   position: 'relative',
   cursor: 'pointer',
+
+  '&:hover': {
+    transform: 'scale(1.01)',
+    transition: 'all .1s cubic-bezier(0.1, 0.7, 1.0, 0.1)',
+  },
+
+  '&:active': {
+    transform: 'scale(0.995)',
+  },
+});
+
+const ContentImage = styled('img', {
+  maxWidth: 1000,
+  borderRadius: 8,
+  boxShadow: `  0 1px 1px hsl(0deg 0% 0% / 0.075),
+  0 2px 2px hsl(0deg 0% 0% / 0.075),
+  0 4px 4px hsl(0deg 0% 0% / 0.075),
+  0 8px 8px hsl(0deg 0% 0% / 0.075),
+  0 16px 16px hsl(0deg 0% 0% / 0.075)`,
+  zIndex: -1,
+  position: 'relative',
 });
 
 interface ParallaxProps {
@@ -60,6 +82,42 @@ const parallaxConfig: ParallaxProps[] = [
 
 const string = `${sky.sky5}, white, ${purple.purple5}`;
 
+const overlayShow = keyframes({
+  '0%': { opacity: 0 },
+  '100%': { opacity: 1 },
+});
+
+const contentShow = keyframes({
+  '0%': { opacity: 0, transform: 'translate(-50%, -48%) scale(.96)' },
+  '100%': { opacity: 1, transform: 'translate(-50%, -80%) scale(1)' },
+});
+
+const StyledOverlay = styled(DialogPrimitive.Overlay, {
+  backgroundColor: blackA.blackA9,
+  position: 'fixed',
+  inset: 0,
+  '@media (prefers-reduced-motion: no-preference)': {
+    animation: `${overlayShow} 150ms cubic-bezier(0.16, 1, 0.3, 1)`,
+  },
+});
+
+const StyledContent = styled(DialogPrimitive.Content, {
+  backgroundColor: 'transparent',
+  borderRadius: 6,
+  boxShadow:
+    'hsl(206 22% 7% / 35%) 0px 10px 38px -10px, hsl(206 22% 7% / 20%) 0px 10px 20px -15px',
+  position: 'fixed',
+  top: '50%',
+  left: '50%',
+  transform: 'translate(-50%, -80%)',
+  width: 'fit-content',
+
+  '@media (prefers-reduced-motion: no-preference)': {
+    animation: `${contentShow} 150ms cubic-bezier(0.16, 1, 0.3, 1)`,
+  },
+  '&:focus': { outline: 'none' },
+});
+
 const PlaygroundRoute = () => {
   return (
     <>
@@ -82,11 +140,24 @@ const PlaygroundRoute = () => {
           {parallaxConfig.map((config, i) => {
             return (
               <Parallax x={config.x} y={config.y}>
-                <Image
-                  id={`parallax-image-${i + 1}`}
-                  width={400}
-                  src={GG_BRIDGE}
-                />
+                <DialogPrimitive.Root>
+                  <DialogPrimitive.Trigger asChild>
+                    <Image
+                      id={`parallax-image-${i + 1}`}
+                      width={400}
+                      src={GG_BRIDGE}
+                    />
+                  </DialogPrimitive.Trigger>
+                  <DialogPrimitive.Portal>
+                    <StyledOverlay />
+                    <StyledContent>
+                      <ContentImage
+                        id={`parallax-image-${i + 1}`}
+                        src={GG_BRIDGE}
+                      />
+                    </StyledContent>
+                  </DialogPrimitive.Portal>
+                </DialogPrimitive.Root>
               </Parallax>
             );
           })}
