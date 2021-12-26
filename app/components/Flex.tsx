@@ -1,5 +1,7 @@
 import { styled } from '~/styles/stitches.config';
 
+// think variant as the set of styles that are applied when we use this value
+
 export const Flex = styled('div', {
   // implicitly have Flex default to display='flex' defaults
   display: 'flex',
