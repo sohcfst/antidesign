@@ -122,10 +122,20 @@ const StyledContent = styled(DialogPrimitive.Content, {
   '&:focus': { outline: 'none' },
 });
 
+const H1 = styled('h1', {
+  fontSize: 72,
+  position: 'fixed',
+  zIndex: 120000000000,
+  textShadow: '-1px 0 black, 0 1px black, 1px 0 black, 0 -1px black',
+});
+
 const PlaygroundRoute = () => {
   return (
     <>
       <ParallaxProvider>
+        <Flex layout={'centerColumn'}>
+          <H1>MEMORY SCROLLER</H1>
+        </Flex>
         <Flex
           layout={'centerColumn'}
           css={{
@@ -135,6 +145,7 @@ const PlaygroundRoute = () => {
             zIndex: 0,
             backgroundBlendMode: 'screen',
             position: 'relative',
+            paddingTop: 200,
           }}
         >
           <NoiseBackground />
