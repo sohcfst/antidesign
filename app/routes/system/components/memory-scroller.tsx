@@ -112,7 +112,6 @@ const MemoryScroller = ({
             {arr.map((key, i) => {
               return (
                 <Memory
-                  key={key}
                   scrollOffset={offset}
                   initialTopOffset={i * 100}
                   src={urls[0]}
