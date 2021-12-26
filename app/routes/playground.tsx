@@ -29,13 +29,16 @@ const Image = styled('img', {
 });
 
 const ContentImage = styled('img', {
-  maxWidth: 1000,
+  '--shadow-color': '0deg 0% 50%',
+  maxWidth: 800,
   borderRadius: 8,
-  boxShadow: `  0 1px 1px hsl(0deg 0% 0% / 0.075),
-  0 2px 2px hsl(0deg 0% 0% / 0.075),
-  0 4px 4px hsl(0deg 0% 0% / 0.075),
-  0 8px 8px hsl(0deg 0% 0% / 0.075),
-  0 16px 16px hsl(0deg 0% 0% / 0.075)`,
+  boxShadow: `
+  1px 2px 2px hsl(var(--shadow-color) / 0.2),
+  2px 4px 4px hsl(var(--shadow-color) / 0.2),
+  4px 8px 8px hsl(var(--shadow-color) / 0.2),
+  8px 16px 16px hsl(var(--shadow-color) / 0.2),
+  16px 32px 32px hsl(var(--shadow-color) / 0.2)
+`,
   zIndex: -1,
   position: 'relative',
 });
