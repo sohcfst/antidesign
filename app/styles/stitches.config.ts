@@ -1,5 +1,5 @@
 import { createStitches, globalCss } from '@stitches/react';
-import { blue, green, yellow, red } from '@radix-ui/colors';
+import { blue, green, yellow, red, grayA } from '@radix-ui/colors';
 
 export const globalStyles = globalCss({
   /*
@@ -38,7 +38,7 @@ export const globalStyles = globalCss({
       5. Improve text rendering
   */
   body: {
-    background: 'black',
+    background: grayA.grayA1,
     lineHeight: 1.5,
     '-webkit-font-smoothing': 'antialiased',
   },
