@@ -167,7 +167,7 @@ export const {
     }),
 
     // A property to apply linear gradient
-    linearGradient: (value: number) => ({
+    linearGradient: (value: string) => ({
       backgroundImage: `linear-gradient(${value})`,
     }),
 
