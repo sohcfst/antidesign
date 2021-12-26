@@ -91,7 +91,7 @@ const overlayShow = keyframes({
 });
 
 const contentShow = keyframes({
-  '0%': { opacity: 0, transform: 'translate(-50%, -48%) scale(.96)' },
+  '0%': { opacity: 0, transform: 'translate(-50%, -18%) scale(.7)' },
   '100%': { opacity: 1, transform: 'translate(-50%, -80%) scale(1)' },
 });
 
@@ -116,8 +116,9 @@ const StyledContent = styled(DialogPrimitive.Content, {
   width: 'fit-content',
 
   '@media (prefers-reduced-motion: no-preference)': {
-    animation: `${contentShow} 150ms cubic-bezier(0.16, 1, 0.3, 1)`,
+    animation: `${contentShow} 300ms cubic-bezier(0.16, 1, 0.3, 1)`,
   },
+
   '&:focus': { outline: 'none' },
 });
 
@@ -125,15 +126,12 @@ const PlaygroundRoute = () => {
   return (
     <>
       <ParallaxProvider>
-        {/* <StickyHeader /> */}
-
         <Flex
           layout={'centerColumn'}
           css={{
             height: 10000,
             width: '100%',
             background: `linear-gradient(165deg, ${string}, ${string}, ${string}, ${string}, ${string})`,
-            // background: 'white',
             zIndex: 0,
             backgroundBlendMode: 'screen',
             position: 'relative',
