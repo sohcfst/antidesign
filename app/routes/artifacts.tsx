@@ -29,7 +29,7 @@ export default function SystemRoute() {
         <Button>SYSTEM.__init()</Button>
         <Button>SYSTEM.__exit()</Button>
       </Flex>
-      <HeaderContainer>S O N I C D R E A M S</HeaderContainer>
+      <HeaderContainer>A R T I F A C T S</HeaderContainer>
       <Flex
         css={{
           width: 1192,

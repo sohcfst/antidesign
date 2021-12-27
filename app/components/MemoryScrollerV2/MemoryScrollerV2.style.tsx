@@ -1,4 +1,4 @@
-import { blackA, purple, sky } from '@radix-ui/colors';
+import { blackA, green, purple, sky } from '@radix-ui/colors';
 
 import { styled, keyframes } from '~/styles/stitches.config';
 
@@ -81,7 +81,7 @@ export const parallaxConfig: ParallaxProps[] = [
   { y: ['100px', '-500px'], x: ['-300px', '-300px'] }, // 13
 ];
 
-export const gradientString = `${sky.sky5}, white, ${purple.purple5}`;
+export const gradientString = `${sky.sky5}, white, ${purple.purple5}, white, ${green.green4}, white`;
 
 const overlayShow = keyframes({
   '0%': { opacity: 0 },

@@ -27,7 +27,7 @@ export default function Index() {
         <Button>SYSTEM.__init()</Button>
         <Button>SYSTEM.__exit()</Button>
       </Flex>
-      <HeaderContainer />
+      <HeaderContainer>A N T I D E S I G N</HeaderContainer>
       <Flex
         css={{
           width: 1192,

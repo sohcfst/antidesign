@@ -19,14 +19,14 @@ const MemoryScroller = () => {
     <>
       <ParallaxProvider>
         <Flex layout={'centerColumn'}>
-          <H1>MEMORY SCROLLER</H1>
+          <H1>SYSTEM : NOSTALGIA</H1>
         </Flex>
         <Flex
           layout={'centerColumn'}
           css={{
             height: 10000,
             width: '100%',
-            background: `linear-gradient(165deg, ${gradientString}, ${gradientString}, ${gradientString}, ${gradientString}, ${gradientString})`,
+            background: `linear-gradient(175deg, ${gradientString}, ${gradientString}, ${gradientString})`,
             zIndex: 0,
             backgroundBlendMode: 'screen',
             position: 'relative',

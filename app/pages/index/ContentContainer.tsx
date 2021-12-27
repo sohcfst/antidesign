@@ -4,7 +4,11 @@ import { H1 } from '~/components/Typography/Header';
 import { Paragraph } from '~/components/Typography/Text';
 import { styled } from '~/styles/stitches.config';
 
-export const HeaderContainer = () => (
+interface HeaderContainerProps {
+  children: React.ReactNode;
+}
+
+export const HeaderContainer = ({ children }: HeaderContainerProps) => (
   <Flex
     layout={'centerColumn'}
     css={{
@@ -24,7 +28,7 @@ export const HeaderContainer = () => (
         cursor: 'pointer',
       }}
     >
-      A N T I D E S I G N
+      {children}
     </H1>
   </Flex>
 );
@@ -79,6 +83,7 @@ export const Button = styled('button', {
 export const NavContainer = () => (
   <Flex
     css={{
+      // position: 'fixed',
       width: 264,
       height: '100%',
       border: '1px solid white',
@@ -92,9 +97,14 @@ export const NavContainer = () => (
   </Flex>
 );
 
-const Card = ({ children }) => (
+interface CardProps {
+  children: React.ReactNode;
+}
+
+const Card = ({ children }: CardProps) => (
   <Flex
     css={{
+      background: '$stitchesGrey',
       height: '100%',
       border: '1px solid white',
       br: 8,
@@ -128,7 +138,7 @@ export const ContentContainer = () => (
       px: 24,
       fontWeight: 'bold',
       gap: 24,
-      background: '$stitchesGrey',
+      background: 'transparent',
     }}
   >
     {lol.slice(0, 5).map((lol) => {
