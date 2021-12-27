@@ -55,11 +55,8 @@ export default function Index() {
             height: '100%',
             border: '1px solid white',
             br: 8,
-            boxShadow: `0 1px 1px hsl(0deg 100% 100% / 0.075),
-            0 2px 2px hsl(0deg 100% 100% / 0.075),
-            0 4px 4px hsl(0deg 100% 100% / 0.075),
-            0 8px 8px hsl(0deg 100% 100% / 0.075),
-            0 16px 16px hsl(0deg 100% 100% / 0.075)`,
+            boxShadow: `1px 2px 2px hsl(220deg 100% 100% / 0.5),
+            2px 4px 4px hsl(220deg 100% 100% / 0.5)`,
           }}
         >
           <LinkTray />
@@ -73,7 +70,7 @@ export default function Index() {
             width: '100%',
             px: 24,
             fontWeight: 'bold',
-            gap: 16,
+            gap: 24,
           }}
         >
           {lol.map((lol) => {
@@ -86,6 +83,8 @@ export default function Index() {
                   width: '100%',
                   padding: 24,
                   flexDirection: 'column',
+                  boxShadow: `   1px 2px 2px hsl(220deg 100% 100% / 0.5),
+                  2px 4px 4px hsl(220deg 100% 100% / 0.5)`,
                 }}
               >
                 <Paragraph css={{ fontSize: 24 }}>{lol.title}</Paragraph>
