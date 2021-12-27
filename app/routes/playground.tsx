@@ -3,7 +3,7 @@ import { Parallax, ParallaxProvider } from 'react-scroll-parallax';
 import { Flex } from '~/components/Flex';
 import { NoiseBackground } from '~/components/Noise';
 import { styled, keyframes } from '~/styles/stitches.config';
-import { GG_BRIDGE } from './system/components/memory-scroller';
+import { GG_BRIDGE, IG_PIC } from './system/components/memory-scroller';
 import * as DialogPrimitive from '@radix-ui/react-dialog';
 
 const Image = styled('img', {

@@ -2,6 +2,8 @@ import { globalStyles, styled } from '~/styles/stitches.config';
 
 const Flex = styled('div', {
   display: 'flex',
+  flexDirection: 'row',
+  justifyContent: 'center',
 });
 
 export default function Index() {
@@ -10,12 +12,9 @@ export default function Index() {
   return (
     <Flex
       css={{
-        justifyContent: 'center',
+        alignItems: 'center',
         flexDirection: 'column',
       }}
-    >
-      <h1>truly have no clue what this is for yet lol</h1>
-      <h2>or do i ?</h2>
-    </Flex>
+    />
   );
 }
