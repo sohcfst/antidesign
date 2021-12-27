@@ -61,7 +61,7 @@ export default function Index() {
             padding: 16,
           }}
         >
-          content
+          i be wearing carhartt with no works in progress
         </Flex>
       </Flex>
     </Flex>
