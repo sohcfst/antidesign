@@ -25,6 +25,12 @@ export const globalStyles = globalCss({
     },
   },
 
+  'button, input,optgroup, select, textarea': {
+    fontFamily: 'inherit' /* 1 */,
+    fontSize: '100%' /* 1 */,
+    border: 'none',
+  },
+
   /*
     3. Allow percentage-based heights in the application
   */
