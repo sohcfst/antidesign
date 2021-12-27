@@ -92,6 +92,31 @@ export const NavContainer = () => (
   </Flex>
 );
 
+const Card = ({ children }) => (
+  <Flex
+    css={{
+      height: '100%',
+      border: '1px solid white',
+      br: 8,
+      width: '100%',
+      padding: 24,
+      flexDirection: 'column',
+      boxShadow: `1px 2px 2px hsl(220deg 100% 100% / 0.5),
+          2px 4px 4px hsl(220deg 100% 100% / 0.5)`,
+      cursor: 'pointer',
+      '&:hover': {
+        transform: 'scale(1.005)',
+        transition: 'all .05s cubic-bezier(0.1, 0.7, 1.0, 0.1)',
+        '&:active': {
+          transform: 'scale(0.995)',
+        },
+      },
+    }}
+  >
+    {children}
+  </Flex>
+);
+
 export const ContentContainer = () => (
   <Flex
     layout="centerColumn"
@@ -108,29 +133,10 @@ export const ContentContainer = () => (
   >
     {lol.slice(0, 5).map((lol) => {
       return (
-        <Flex
-          css={{
-            height: '100%',
-            border: '1px solid white',
-            br: 8,
-            width: '100%',
-            padding: 24,
-            flexDirection: 'column',
-            boxShadow: `1px 2px 2px hsl(220deg 100% 100% / 0.5),
-                  2px 4px 4px hsl(220deg 100% 100% / 0.5)`,
-            cursor: 'pointer',
-            '&:hover': {
-              transform: 'scale(1.005)',
-              transition: 'all .05s cubic-bezier(0.1, 0.7, 1.0, 0.1)',
-              '&:active': {
-                transform: 'scale(0.995)',
-              },
-            },
-          }}
-        >
+        <Card>
           <Paragraph css={{ fontSize: 24 }}>{lol.title}</Paragraph>
           <Paragraph>{lol.date}</Paragraph>
-        </Flex>
+        </Card>
       );
     })}
   </Flex>
