@@ -14,12 +14,15 @@ enum Routes {
   playground = 'playground',
   sonicdreams = 'sonicdreams',
   system = 'system',
+  artifacts = 'artifacts',
 }
 
 export const LinkTray = () => {
   return (
     <Toolbar orientation="vertical">
-      <Paragraph css={{ textDecoration: 'underline' }}> routes </Paragraph>
+      <Paragraph css={{ textDecoration: 'underline' }}>
+        P A T H S E L E C T O R
+      </Paragraph>
 
       <StyledLinky to="/">/</StyledLinky>
 
@@ -31,6 +34,10 @@ export const LinkTray = () => {
 
       <StyledLinky to={`/${Routes.sonicdreams}`}>
         / {Routes.sonicdreams}
+      </StyledLinky>
+
+      <StyledLinky to={`/${Routes.artifacts}`}>
+        / {Routes.artifacts}
       </StyledLinky>
     </Toolbar>
   );

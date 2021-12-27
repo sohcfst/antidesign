@@ -7,7 +7,6 @@ export const StyledToolbar = styled(ToolbarPrimitive.Root, {
   flexDirection: 'column',
   alignItems: 'start',
   padding: 16,
-  width: 200,
   borderRadius: 16,
   gap: 24,
 });
