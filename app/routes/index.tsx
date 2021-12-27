@@ -50,7 +50,7 @@ export default function Index() {
             br: 8,
           }}
         >
-          <LinkTray></LinkTray>
+          <LinkTray />
         </Flex>
         <Flex
           css={{

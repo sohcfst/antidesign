@@ -10,6 +10,12 @@ const StyledLinky = styled(Link, {
   fontSize: '16px',
 });
 
+enum Routes {
+  playground = 'playground',
+  sonicdreams = 'sonicdreams',
+  system = 'system',
+}
+
 export const LinkTray = () => {
   return (
     <Toolbar orientation="vertical">
@@ -17,10 +23,15 @@ export const LinkTray = () => {
 
       <StyledLinky to="/">/</StyledLinky>
 
-      <StyledLinky to="/playground">/ playground</StyledLinky>
-      {/* <StyledLinky to="/">/ sonicdreams</StyledLinky>
-      <StyledLinky to="/">/ cadence</StyledLinky>
-      <StyledLinky to="/playground">/ artifacts</StyledLinky> */}
+      <StyledLinky to={`/${Routes.system}`}>/ {Routes.system}</StyledLinky>
+
+      <StyledLinky to={`/${Routes.playground}`}>
+        / {Routes.playground}
+      </StyledLinky>
+
+      <StyledLinky to={`/${Routes.sonicdreams}`}>
+        / {Routes.sonicdreams}
+      </StyledLinky>
     </Toolbar>
   );
 };
