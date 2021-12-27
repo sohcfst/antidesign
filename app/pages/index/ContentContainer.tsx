@@ -30,7 +30,10 @@ export const HeaderContainer = () => (
 );
 
 export const lol = [
-  { title: 'ARTIFACT_0001 : css strategies', date: 'AUGUST 8, 1906' },
+  {
+    title: 'ARTIFACT_0001 : antidesign site inspirations',
+    date: 'AUGUST 8, 1906',
+  },
   {
     title: 'ARTIFACT_0023 : multistep flow architecture',
     date: 'AUGUST 8, 1906',
@@ -39,7 +42,15 @@ export const lol = [
     title: 'ARTIFACT_0112 : state management in react',
     date: 'AUGUST 8, 1906',
   },
-  { title: 'ARTIFACT_0014: site inspirations', date: 'AUGUST 8, 1906' },
+  {
+    title: 'ARTIFACT_0014: css strategy & architecture',
+    date: 'AUGUST 8, 1906',
+  },
+
+  {
+    title: 'SONICDREAMS_0014: everything all at once',
+    date: 'AUGUST 8, 1906',
+  },
   {
     title: 'SONICDREAMS_0014: everything all at once',
     date: 'AUGUST 8, 1906',
@@ -68,7 +79,7 @@ export const Button = styled('button', {
 export const NavContainer = () => (
   <Flex
     css={{
-      width: 200,
+      width: 264,
       height: '100%',
       border: '1px solid white',
       br: 8,
@@ -95,7 +106,7 @@ export const ContentContainer = () => (
       background: '$stitchesGrey',
     }}
   >
-    {lol.map((lol) => {
+    {lol.slice(0, 5).map((lol) => {
       return (
         <Flex
           css={{
