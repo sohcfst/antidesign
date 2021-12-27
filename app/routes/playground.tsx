@@ -5,6 +5,7 @@ import { NoiseBackground } from '~/components/Noise';
 import { styled, keyframes } from '~/styles/stitches.config';
 import { GG_BRIDGE, IG_PIC } from './system/components/memory-scroller';
 import * as DialogPrimitive from '@radix-ui/react-dialog';
+import { H1 } from '~/components/Typography/Header';
 
 const Image = styled('img', {
   maxWidth: 1000,
@@ -120,13 +121,6 @@ const StyledContent = styled(DialogPrimitive.Content, {
   },
 
   '&:focus': { outline: 'none' },
-});
-
-const H1 = styled('h1', {
-  fontSize: 72,
-  position: 'fixed',
-  zIndex: 120000000000,
-  textShadow: '-1px 0 black, 0 1px black, 1px 0 black, 0 -1px black',
 });
 
 const PlaygroundRoute = () => {
