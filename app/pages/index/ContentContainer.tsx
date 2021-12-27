@@ -32,24 +32,24 @@ export const HeaderContainer = () => (
 export const lol = [
   {
     title: 'ARTIFACT_0001 : antidesign site inspirations',
-    date: 'AUGUST 8, 1906',
+    date: 'AUG 8, 1906',
   },
   {
     title: 'ARTIFACT_0023 : multistep flow architecture',
-    date: 'AUGUST 8, 1906',
+    date: 'JAN 28, 2006',
   },
   {
     title: 'ARTIFACT_0112 : state management in react',
-    date: 'AUGUST 8, 1906',
+    date: 'OCT 16, 2106',
   },
   {
     title: 'ARTIFACT_0014: css strategy & architecture',
-    date: 'AUGUST 8, 1906',
+    date: 'DEC 27, 1140',
   },
 
   {
     title: 'SONICDREAMS_0014: everything all at once',
-    date: 'AUGUST 8, 1906',
+    date: 'MAR 8, 2711',
   },
   {
     title: 'SONICDREAMS_0014: everything all at once',
