@@ -35,22 +35,22 @@ const transformJerkConfig0 = {
 const transformJerkConfig1 = {
   transform: [
     'translate(0px, 0px)',
-    'translate(114px, -72px)',
-    'translate(100px, -65px)',
+    'translate(80px, -72px)',
+    'translate(70px, -65px)',
   ],
   optionsConfig,
 };
 
 const transformJerkConfig2 = {
-  transform: ['translate(0px)', 'translate(140px)', 'translate(130px'],
+  transform: ['translate(0px)', 'translate(120px)', 'translate(110px'],
   optionsConfig,
 };
 
 const transformJerkConfig3 = {
   transform: [
     'translate(0px, 0px)',
-    'translate(114px, 72px)',
-    'translate(112px, 65px)',
+    'translate(80px, 72px)',
+    'translate(70px, 65px)',
   ],
   optionsConfig,
 };
@@ -66,11 +66,10 @@ const transformJerkConfig4 = {
 
 export const systemInit: TimelineDefinition = [
   ['#page-nav', { transform: 'translate(-500px)' }],
-  ['#page-header', { transform: 'translate(-10000px)' }],
-  ['#page-button-container', { transform: 'translate(500px)' }],
-  ['#fuckshit-0', transformJerkConfig0],
+  ['#page-header', { transform: 'translate(-1000px)' }],
+  ['#fuckshit-0', transformJerkConfig0, { at: '' }],
+  ['#fuckshit-4', transformJerkConfig4, { at: '-0.3' }],
   ['#fuckshit-1', transformJerkConfig1],
+  ['#fuckshit-3', transformJerkConfig3, { at: '-0.3' }],
   ['#fuckshit-2', transformJerkConfig2],
-  ['#fuckshit-3', transformJerkConfig3],
-  ['#fuckshit-4', transformJerkConfig4],
 ];

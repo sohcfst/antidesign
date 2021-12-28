@@ -27,7 +27,7 @@ export default function Index() {
           }}
         >
           <Button onClick={() => timeline(systemInit)}>SYSTEM.__init()</Button>
-          <Button>SYSTEM.__exit()</Button>
+          {/* <Button>SYSTEM.__exit()</Button> */}
         </Flex>
         <HeaderContainer>A N T I D E S I G N</HeaderContainer>
         <Flex

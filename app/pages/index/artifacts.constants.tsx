@@ -20,7 +20,7 @@ export const artifacts = [
   {
     title: 'ARTIFACT_0112 : state management in react',
     date: 'OCT 16, 2106',
-    labels: [Label.Engineering, Label.Music],
+    labels: [Label.Engineering],
   },
   {
     title: 'ARTIFACT_0014 : bacon & basil fried rice recipe',
@@ -31,11 +31,11 @@ export const artifacts = [
   {
     title: 'SONICDREAMS_0014 : everything all at once',
     date: 'MAR 08, 2711',
-    labels: [Label.Engineering, Label.Music],
+    labels: [Label.Music],
   },
   {
     title: 'SONICDREAMS_0014 : everything all at once',
     date: 'AUGUST 08, 1906',
-    labels: [Label.Engineering, Label.Music],
+    labels: [Label.Music],
   },
 ];
