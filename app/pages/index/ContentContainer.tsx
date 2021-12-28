@@ -5,7 +5,8 @@ import { StyledPill } from '~/components/Pills';
 import { LinkTray } from '~/components/Sidebar/Sidebar';
 import { H1 } from '~/components/Typography/Header';
 import { Paragraph } from '~/components/Typography/Text';
-import { keyframes, styled } from '~/styles/stitches.config';
+import { styled } from '~/styles/stitches.config';
+import { sequence1, sequence2 } from './animation.constants';
 import { artifacts } from './artifacts.constants';
 
 interface HeaderContainerProps {
@@ -100,31 +101,8 @@ const StyledContentContainer = styled(Flex, {
   },
 });
 
-const transformConfig = {
-  transform: ['translateX(0px)', 'translateX(820px)', 'translateX(800px)'],
-};
-
-const optionsConfig = { offset: [0, 0.3, 1] };
-const optionsConfigWithRelativeDelay = { ...optionsConfig, at: '+0.1' };
-
 export const ContentContainer = () => {
   const [systemEngaged, setSystemEngaged] = useState(false);
-
-  const sequence2 = [
-    ['#fuckshit-0', transformConfig, optionsConfig],
-    ['#fuckshit-1', transformConfig, optionsConfigWithRelativeDelay],
-    ['#fuckshit-2', transformConfig, optionsConfigWithRelativeDelay],
-    ['#fuckshit-3', transformConfig, optionsConfigWithRelativeDelay],
-    ['#fuckshit-4', transformConfig, optionsConfigWithRelativeDelay],
-  ];
-
-  const sequence1 = [
-    ['#fuckshit-0', { transform: 'translateX(0px)' }, {}],
-    ['#fuckshit-1', { transform: 'translateX(0px)' }, { at: '+0.1' }],
-    ['#fuckshit-2', { transform: 'translateX(0px)' }, { at: '+0.1' }],
-    ['#fuckshit-3', { transform: 'translateX(0px)' }, { at: '+0.1' }],
-    ['#fuckshit-4', { transform: 'translateX(0px)' }, { at: '+0.1' }],
-  ];
 
   const onCardClick = (delay: number, id: string) => {
     if (systemEngaged) {
@@ -135,10 +113,6 @@ export const ContentContainer = () => {
       setSystemEngaged(true);
     }
   };
-
-  // useEffect(() => {
-  //    if ()
-  // }, [systemEngaged])
 
   return (
     <StyledContentContainer layout={'centerColumn'}>
