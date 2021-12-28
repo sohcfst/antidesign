@@ -17,6 +17,7 @@ interface CardProviderProps {
 const initialState = {
   currentlyHoveredElementId: null,
 };
+
 export const CardContext = createContext<State | null>(null);
 
 const stateSlice = createSlice({

@@ -1,12 +1,19 @@
+import { createSlice } from '@reduxjs/toolkit';
 import { timeline } from 'motion';
+import { createContext, useContext, useReducer } from 'react';
 import { Button } from '~/components/Button';
 import { Flex } from '~/components/Flex';
 import { NoiseBackground } from '~/components/Noise';
-import { systemInit } from '~/pages/index/animation.constants';
-import { CardProvider } from '~/pages/index/CardProvider';
+import { systemInit, systemReset } from '~/pages/index/animation.constants';
+
 import { HeaderContainer } from '~/pages/index/ContentContainer';
 
 import { ContentContainer, NavContainer } from '~/pages/index/ContentContainer';
+import {
+  GlobalProvder,
+  setIsSystemInitialized,
+  useGlobalContext,
+} from '~/pages/index/GlobalProvider';
 
 import { globalStyles } from '~/styles/stitches.config';
 
@@ -14,22 +21,11 @@ export default function Index() {
   globalStyles();
 
   return (
-    <CardProvider>
+    <GlobalProvder>
       <Flex css={{ py: 40 }} layout={'centerColumn'}>
         <NoiseBackground />
-        <Flex
-          id="page-button-container"
-          css={{
-            position: 'absolute',
-            top: 16,
-            right: 16,
-            gap: 16,
-          }}
-        >
-          <Button onClick={() => timeline(systemInit)}>SYSTEM.__init()</Button>
-          {/* <Button>SYSTEM.__exit()</Button> */}
-        </Flex>
         <HeaderContainer>A N T I D E S I G N</HeaderContainer>
+        <ButtonContainer />
         <Flex
           css={{
             width: 1192,
@@ -43,6 +39,36 @@ export default function Index() {
           <ContentContainer />
         </Flex>
       </Flex>
-    </CardProvider>
+    </GlobalProvder>
   );
 }
+
+export const ButtonContainer = () => {
+  const { state, dispatch } = useGlobalContext();
+
+  return (
+    <Flex
+      id="page-button-container"
+      css={{
+        position: 'absolute',
+        top: 16,
+        left: 16,
+        gap: 16,
+      }}
+    >
+      <Button
+        onClick={() => {
+          if (state.isSystemInitialized) {
+            dispatch(setIsSystemInitialized({ isSystemInitialized: false }));
+            timeline(systemReset);
+          } else {
+            dispatch(setIsSystemInitialized({ isSystemInitialized: true }));
+            timeline(systemInit);
+          }
+        }}
+      >
+        {state.isSystemInitialized ? 'SYSTEM.__reset()' : 'SYSTEM.__init()'}
+      </Button>
+    </Flex>
+  );
+};

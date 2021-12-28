@@ -65,11 +65,26 @@ const transformJerkConfig4 = {
 };
 
 export const systemInit: TimelineDefinition = [
-  ['#page-nav', { transform: 'translate(-500px)' }],
-  ['#page-header', { transform: 'translate(-1000px)' }],
+  ['#page-nav', { transform: 'translate(-500px)' }, { duration: 0.5 }],
+  ['#page-header', { transform: 'translateY(-300px)' }, { duration: 0.5 }],
   ['#fuckshit-0', transformJerkConfig0, { at: '' }],
   ['#fuckshit-4', transformJerkConfig4, { at: '-0.3' }],
   ['#fuckshit-1', transformJerkConfig1],
   ['#fuckshit-3', transformJerkConfig3, { at: '-0.3' }],
   ['#fuckshit-2', transformJerkConfig2],
+];
+
+const resetConfig = {
+  transform: ['translate(0px, 0px)'],
+  optionsConfig,
+};
+
+export const systemReset: TimelineDefinition = [
+  ['#fuckshit-2', resetConfig],
+  ['#fuckshit-1', resetConfig],
+  ['#fuckshit-3', resetConfig, { at: '-0.3' }],
+  ['#fuckshit-0', resetConfig],
+  ['#fuckshit-4', resetConfig, { at: '-0.3' }],
+  ['#page-nav', { transform: 'translate(0px)' }, { duration: 0.5 }],
+  ['#page-header', { transform: 'translate(0px)' }, { duration: 0.5 }],
 ];

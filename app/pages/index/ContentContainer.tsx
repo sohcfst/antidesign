@@ -6,9 +6,11 @@ import { StyledPill } from '~/components/Pills';
 import { LinkTray } from '~/components/Sidebar/Sidebar';
 import { H1 } from '~/components/Typography/Header';
 import { Paragraph } from '~/components/Typography/Text';
+
 import { styled } from '~/styles/stitches.config';
 import { sequence1, sequence2 } from './animation.constants';
 import { artifacts } from './artifacts.constants';
+import { setArtifact, useGlobalContext } from './GlobalProvider';
 
 interface HeaderContainerProps {
   children: React.ReactNode;
@@ -105,9 +107,13 @@ const StyledContentContainer = styled(Flex, {
 });
 
 export const ContentContainer = () => {
+  const { state, dispatch } = useGlobalContext();
+
   const [systemEngaged, setSystemEngaged] = useState(false);
 
-  const onCardClick = () => {
+  const onCardClick = (id: string) => {
+    dispatch(setArtifact({ currentArtifact: id }));
+
     if (systemEngaged) {
       setSystemEngaged(false);
       timeline(sequence1 as TimelineDefinition, {});
@@ -117,13 +123,22 @@ export const ContentContainer = () => {
     }
   };
 
+  useEffect(() => {
+    console.log(state.currentArtifact);
+  }, [state.currentArtifact]);
+
   return (
     <StyledContentContainer layout={'centerColumn'}>
       {artifacts.slice(0, 5).map((artifact, i) => {
         const id = `fuckshit-${i}`;
 
         return (
-          <Card id={id} className="card" key={id} onClick={() => onCardClick()}>
+          <Card
+            id={id}
+            className="card"
+            key={id}
+            onClick={() => onCardClick(id)}
+          >
             <Flex layout={'startColumn'}>
               <Paragraph css={{ fontSize: 24 }}>{artifact.title}</Paragraph>
               <Paragraph css={{ fontFamily: 'jetbrains mono' }}>
@@ -134,7 +149,7 @@ export const ContentContainer = () => {
             <Flex layout={'rowStart'} spacing={'space8'}>
               {artifact.labels.map((label) => {
                 return (
-                  <StyledPill key={id} pillType={label}>
+                  <StyledPill key={id + label} pillType={label}>
                     {label}
                   </StyledPill>
                 );
