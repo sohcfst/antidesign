@@ -74,6 +74,7 @@ export const NavContainer = () => (
 interface CardProps {
   children: React.ReactNode;
 }
+
 const Card = styled(Flex, {
   background: '$stitchesGrey',
   height: '100%',
@@ -99,19 +100,25 @@ export const ContentContainer = () => {
       layout="centerColumn"
       css={{
         height: '100%',
-
+        opacity: 1,
         br: 8,
         width: '100%',
         px: 24,
         fontWeight: 'bold',
         gap: 24,
         background: 'transparent',
-        '&:hover .card': {
-          transition: 'opacity 200ms ease-out',
-          opacity: 0.5,
+
+        '.card': {
+          transition: 'opacity 400ms ease-in-out',
         },
+
+        '&:hover .card': {
+          transition: 'opacity 400ms ease-out',
+          opacity: 0.3,
+        },
+
         '.card:hover': {
-          transition: 'opacity 200ms ease-out',
+          transition: 'opacity ease-out',
           opacity: 1,
         },
       }}
