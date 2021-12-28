@@ -8,6 +8,7 @@ const StyledLinky = styled(Link, {
   textDecoration: 'none',
   fontWeight: 'bold',
   fontSize: '16px',
+  width: '100%',
 });
 
 enum Routes {
@@ -24,19 +25,23 @@ export const LinkTray = () => {
         P A T H S E L E C T O R
       </Paragraph>
 
-      <StyledLinky to="/">/</StyledLinky>
+      <StyledLinky className="link" to="/">
+        /
+      </StyledLinky>
 
-      <StyledLinky to={`/${Routes.system}`}>/ {Routes.system}</StyledLinky>
+      <StyledLinky className="link" to={`/${Routes.system}`}>
+        / {Routes.system}
+      </StyledLinky>
 
-      <StyledLinky to={`/${Routes.playground}`}>
+      <StyledLinky className="link" to={`/${Routes.playground}`}>
         / {Routes.playground}
       </StyledLinky>
 
-      <StyledLinky to={`/${Routes.sonicdreams}`}>
+      <StyledLinky className="link" to={`/${Routes.sonicdreams}`}>
         / {Routes.sonicdreams}
       </StyledLinky>
 
-      <StyledLinky to={`/${Routes.artifacts}`}>
+      <StyledLinky className="link" to={`/${Routes.artifacts}`}>
         / {Routes.artifacts}
       </StyledLinky>
     </Toolbar>

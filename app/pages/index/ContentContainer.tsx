@@ -58,14 +58,13 @@ export const Button = styled('button', {
 export const NavContainer = () => (
   <Flex
     css={{
-      // position: 'fixed',
       width: 264,
-      height: '100%',
       border: '1px solid white',
       br: 8,
       boxShadow: `1px 2px 2px hsl(220deg 100% 100% / 0.5),
             2px 4px 4px hsl(220deg 100% 100% / 0.5)`,
       background: '$stitchesGrey',
+      height: '100%',
     }}
   >
     <LinkTray />
@@ -108,9 +107,11 @@ export const ContentContainer = () => {
         gap: 24,
         background: 'transparent',
         '&:hover .card': {
+          transition: 'opacity 200ms ease-out',
           opacity: 0.5,
         },
         '.card:hover': {
+          transition: 'opacity 200ms ease-out',
           opacity: 1,
         },
       }}

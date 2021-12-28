@@ -31,6 +31,7 @@ const MemoryScroller = () => {
             backgroundBlendMode: 'screen',
             position: 'relative',
             paddingTop: 200,
+            br: 8,
           }}
         >
           <NoiseBackground />
