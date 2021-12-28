@@ -1,9 +1,11 @@
+import { animate, timeline } from 'motion';
+import { useEffect, useState } from 'react';
 import { Flex } from '~/components/Flex';
 import { StyledPill } from '~/components/Pills';
 import { LinkTray } from '~/components/Sidebar/Sidebar';
 import { H1 } from '~/components/Typography/Header';
 import { Paragraph } from '~/components/Typography/Text';
-import { styled } from '~/styles/stitches.config';
+import { keyframes, styled } from '~/styles/stitches.config';
 import { artifacts } from './artifacts.constants';
 
 interface HeaderContainerProps {
@@ -51,10 +53,6 @@ export const NavContainer = () => (
   </Flex>
 );
 
-interface CardProps {
-  children: React.ReactNode;
-}
-
 const Card = styled(Flex, {
   background: '$stitchesGrey',
   height: '100%',
@@ -67,8 +65,8 @@ const Card = styled(Flex, {
     2px 4px 4px hsl(220deg 100% 100% / 0.5)`,
   cursor: 'pointer',
   '&:hover': {
-    transform: 'scale(1.005)',
-    transition: 'all .05s cubic-bezier(0.1, 0.7, 1.0, 0.1)',
+    transform: 'scale(1.205)',
+    transition: 'all .2s cubic-bezier(0.1, 0.7, 1.0, 0.1)',
     '&:active': {
       transform: 'scale(0.995)',
     },
@@ -76,40 +74,84 @@ const Card = styled(Flex, {
   justifyContent: 'space-between',
 });
 
+const StyledContentContainer = styled(Flex, {
+  height: '100%',
+  opacity: 1,
+  br: 8,
+  width: '100%',
+  px: 24,
+  fontWeight: 'bold',
+  gap: 24,
+  background: 'transparent',
+
+  '.card': {
+    transition:
+      'opacity 400ms ease-in-out, background-color 1000ms ease-in-out',
+  },
+
+  '&:hover .card': {
+    transition: 'opacity 400ms ease-out',
+    opacity: 0.3,
+  },
+
+  '.card:hover': {
+    transition: 'opacity ease-out',
+    opacity: 1,
+  },
+});
+
+const transformConfig = {
+  transform: ['translateX(0px)', 'translateX(820px)', 'translateX(800px)'],
+};
+
+const optionsConfig = { offset: [0, 0.3, 1] };
+const optionsConfigWithRelativeDelay = { ...optionsConfig, at: '+0.1' };
+
 export const ContentContainer = () => {
+  const [systemEngaged, setSystemEngaged] = useState(false);
+
+  const sequence2 = [
+    ['#fuckshit-0', transformConfig, optionsConfig],
+    ['#fuckshit-1', transformConfig, optionsConfigWithRelativeDelay],
+    ['#fuckshit-2', transformConfig, optionsConfigWithRelativeDelay],
+    ['#fuckshit-3', transformConfig, optionsConfigWithRelativeDelay],
+    ['#fuckshit-4', transformConfig, optionsConfigWithRelativeDelay],
+  ];
+
+  const sequence1 = [
+    ['#fuckshit-0', { transform: 'translateX(0px)' }, {}],
+    ['#fuckshit-1', { transform: 'translateX(0px)' }, { at: '+0.1' }],
+    ['#fuckshit-2', { transform: 'translateX(0px)' }, { at: '+0.1' }],
+    ['#fuckshit-3', { transform: 'translateX(0px)' }, { at: '+0.1' }],
+    ['#fuckshit-4', { transform: 'translateX(0px)' }, { at: '+0.1' }],
+  ];
+
+  const onCardClick = (delay: number, id: string) => {
+    if (systemEngaged) {
+      setSystemEngaged(false);
+      timeline(sequence1, {});
+    } else {
+      timeline(sequence2);
+      setSystemEngaged(true);
+    }
+  };
+
+  // useEffect(() => {
+  //    if ()
+  // }, [systemEngaged])
+
   return (
-    <Flex
-      layout="centerColumn"
-      css={{
-        height: '100%',
-        opacity: 1,
-        br: 8,
-        width: '100%',
-        px: 24,
-        fontWeight: 'bold',
-        gap: 24,
-        background: 'transparent',
-
-        '.card': {
-          transition: 'opacity 400ms ease-in-out',
-        },
-
-        '&:hover .card': {
-          transition: 'opacity 400ms ease-out',
-          opacity: 0.3,
-        },
-
-        '.card:hover': {
-          transition: 'opacity ease-out',
-          opacity: 1,
-        },
-      }}
-    >
+    <StyledContentContainer layout={'centerColumn'}>
       {artifacts.slice(0, 5).map((artifact, i) => {
         const id = `fuckshit-${i}`;
 
         return (
-          <Card className="card" key={id}>
+          <Card
+            id={id}
+            className="card"
+            key={id}
+            onClick={() => onCardClick(i + 1, id)}
+          >
             <Flex layout={'startColumn'}>
               <Paragraph css={{ fontSize: 24 }}>{artifact.title}</Paragraph>
               <Paragraph css={{ fontFamily: 'jetbrains mono' }}>
@@ -129,6 +171,6 @@ export const ContentContainer = () => {
           </Card>
         );
       })}
-    </Flex>
+    </StyledContentContainer>
   );
 };
