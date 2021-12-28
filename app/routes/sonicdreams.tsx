@@ -1,14 +1,11 @@
 import { Outlet } from 'remix';
+import { Button } from '~/components/Button';
 
 import { Flex } from '~/components/Flex';
 import { NoiseBackground } from '~/components/Noise';
 import { HeaderContainer } from '~/pages/index/ContentContainer';
 
-import {
-  Button,
-  ContentContainer,
-  NavContainer,
-} from '~/pages/index/ContentContainer';
+import { ContentContainer, NavContainer } from '~/pages/index/ContentContainer';
 
 import { globalStyles } from '~/styles/stitches.config';
 

@@ -4,23 +4,20 @@ import {
   green,
   yellow,
   red,
-  grayA,
-  blackA,
+  whiteA,
   tomatoDark,
   cyanDark,
   limeDark,
+  yellowDark,
 } from '@radix-ui/colors';
-// import { cyan } from '@radix-ui/colors/types/dark/cyan';
-// import { tomato } from '@radix-ui/colors/types/dark/tomato';
-// import { lime } from '@radix-ui/colors/types/dark/lime';
 
 const { css, keyframes, getCssText, theme, createTheme, config, styled } =
   createStitches({
     theme: {
       space: {
-        space4: 4,
-        space8: 8,
-        space16: 16,
+        space4: '4px',
+        space8: '8px',
+        // space16: '16px',
       },
       radii: {
         br: '4px',
@@ -30,35 +27,12 @@ const { css, keyframes, getCssText, theme, createTheme, config, styled } =
         ...green,
         ...yellow,
         ...red,
+        ...whiteA,
 
         ...tomatoDark,
         ...cyanDark,
         ...limeDark,
-
-        accent1: '$blue1',
-        accent2: '$blue2',
-        accent3: '$blue3',
-        accent4: '$blue4',
-        accent5: '$blue5',
-        accent6: '$blue6',
-        accent7: '$blue7',
-        accent8: '$blue8',
-        accent9: '$blue9',
-        accent10: '$blue10',
-        accent11: '$blue11',
-        accent12: '$blue12',
-
-        success1: '$green1',
-        success2: '$green2',
-        // repeat for all steps
-
-        warning1: '$yellow1',
-        warning2: '$yellow2',
-        // repeat for all steps
-
-        danger1: '$red1',
-        danger2: '$red2',
-        // repeat for all steps
+        ...yellowDark,
 
         stitchesGrey: 'rgb(21, 23, 24)',
       },
@@ -70,45 +44,64 @@ const { css, keyframes, getCssText, theme, createTheme, config, styled } =
     },
     utils: {
       // Abbreviated margin properties
-      m: (value: number) => ({
+      m: (value: number | string) => ({
         margin: value,
       }),
-      mt: (value: number) => ({
+
+      mt: (value: number | string) => ({
         marginTop: value,
       }),
-      mr: (value: number) => ({
+
+      mr: (value: number | string) => ({
         marginRight: value,
       }),
-      mb: (value: number) => ({
+
+      mb: (value: number | string) => ({
         marginBottom: value,
       }),
-      ml: (value: number) => ({
+
+      ml: (value: number | string) => ({
         marginLeft: value,
       }),
-      mx: (value: number) => ({
+
+      mx: (value: number | string) => ({
         marginLeft: value,
         marginRight: value,
       }),
-      my: (value: number) => ({
+
+      my: (value: number | string) => ({
         marginTop: value,
         marginBottom: value,
       }),
-      pt: (value: number) => ({
+
+      p: (value: number | string) => ({
+        padding: value,
+      }),
+
+      pt: (value: number | string) => ({
         paddingTop: value,
       }),
 
-      py: (value: number) => ({
+      pr: (value: number | string) => ({
+        paddingRight: value,
+      }),
+
+      pl: (value: number | string) => ({
+        paddlingLeft: value,
+      }),
+
+      py: (value: number | string) => ({
         paddingTop: value,
         paddingBottom: value,
       }),
 
-      px: (value: number) => ({
+      px: (value: number | string) => ({
         paddingRight: value,
         paddingLeft: value,
       }),
 
       // A property for applying width/height together
-      size: (value: number) => ({
+      size: (value: number | string) => ({
         width: value,
         height: value,
       }),
@@ -119,11 +112,12 @@ const { css, keyframes, getCssText, theme, createTheme, config, styled } =
       }),
 
       // An abbreviated property for border-radius
-      br: (value: number) => ({
+      br: (value: number | string) => ({
         borderRadius: value,
       }),
 
-      z: (value: number) => ({
+      // An abbreviated property for zndex
+      z: (value: number | string) => ({
         zIndex: value,
       }),
     },

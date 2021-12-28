@@ -7,13 +7,7 @@ import { Flex } from '~/components/Flex';
 import { NoiseBackground } from '~/components/Noise';
 import { HeaderContainer } from '~/pages/index/ContentContainer';
 
-import {
-  Button,
-  ContentContainer,
-  NavContainer,
-} from '~/pages/index/ContentContainer';
-
-import { globalStyles } from '~/styles/stitches.config';
+import { Button } from '~/components/Button';
 
 export default function PlaygroundRoute() {
   return (

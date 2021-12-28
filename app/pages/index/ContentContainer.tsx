@@ -35,25 +35,6 @@ export const HeaderContainer = ({ children }: HeaderContainerProps) => (
   </Flex>
 );
 
-export const Button = styled('button', {
-  px: 16,
-  py: 8,
-  unset: 'all',
-  inset: 'none',
-  background: '$stitchesGrey',
-  borderRadius: 4,
-  border: '1px solid white',
-  width: 'fit-content',
-  cursor: 'pointer',
-  boxShadow: `0.5px 1px 1px hsl(220deg 100% 100% / 0.5),
-  1px 2px 2px hsl(220deg 100% 100% / 0.5)`,
-  fontWeight: 'bold',
-
-  '&:active': {
-    transform: 'scale(0.98)',
-  },
-});
-
 export const NavContainer = () => (
   <Flex
     css={{

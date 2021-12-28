@@ -23,6 +23,17 @@ export const StyledPill = styled('strong', {
         border: `1px solid $cyan7`,
         color: `$cyan11`,
       },
+      design: {
+        backgroundColor: `$yellow1`,
+        border: `1px solid $yellow7`,
+        color: `$yellow11`,
+      },
+
+      systems: {
+        backgroundColor: `$whiteA2`,
+        border: `1px solid $whiteA9`,
+        color: `$whiteA12`,
+      },
     },
   },
 });

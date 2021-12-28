@@ -1,7 +1,7 @@
 import { Link } from 'remix';
 import { styled } from '~/styles/stitches.config';
 
-import { Toolbar } from './StyledLinkTray';
+import { Toolbar } from './StyledSidebar';
 import { Paragraph } from '../Typography/Text';
 
 const StyledLinky = styled(Link, {
@@ -29,6 +29,10 @@ export const LinkTray = () => {
         /
       </StyledLinky>
 
+      <StyledLinky className="link" to={`/${Routes.artifacts}`}>
+        / {Routes.artifacts}
+      </StyledLinky>
+
       <StyledLinky className="link" to={`/${Routes.system}`}>
         / {Routes.system}
       </StyledLinky>
@@ -37,13 +41,9 @@ export const LinkTray = () => {
         / {Routes.playground}
       </StyledLinky>
 
-      <StyledLinky className="link" to={`/${Routes.sonicdreams}`}>
+      {/* <StyledLinky className="link" to={`/${Routes.sonicdreams}`}>
         / {Routes.sonicdreams}
-      </StyledLinky>
-
-      <StyledLinky className="link" to={`/${Routes.artifacts}`}>
-        / {Routes.artifacts}
-      </StyledLinky>
+      </StyledLinky> */}
     </Toolbar>
   );
 };
