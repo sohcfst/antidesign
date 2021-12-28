@@ -8,7 +8,8 @@ import { H1 } from '~/components/Typography/Header';
 import { Paragraph } from '~/components/Typography/Text';
 
 import { styled } from '~/styles/stitches.config';
-import { sequence1, sequence2 } from './animation.constants';
+import { sequence1, sequence2 } from './animations/init.constants';
+
 import { artifacts } from './artifacts.constants';
 import { setArtifact, useGlobalContext } from './GlobalProvider';
 

@@ -1,10 +1,10 @@
-import { createSlice } from '@reduxjs/toolkit';
 import { timeline } from 'motion';
-import { createContext, useContext, useReducer } from 'react';
 import { Button } from '~/components/Button';
 import { Flex } from '~/components/Flex';
 import { NoiseBackground } from '~/components/Noise';
-import { systemInit, systemReset } from '~/pages/index/animation.constants';
+import { systemInit } from '~/pages/index/animations/init.constants';
+
+import { systemReset } from '~/pages/index/animations/reset.constants';
 
 import { HeaderContainer } from '~/pages/index/ContentContainer';
 

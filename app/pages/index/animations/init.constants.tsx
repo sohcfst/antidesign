@@ -73,18 +73,3 @@ export const systemInit: TimelineDefinition = [
   ['#fuckshit-3', transformJerkConfig3, { at: '-0.3' }],
   ['#fuckshit-2', transformJerkConfig2],
 ];
-
-const resetConfig = {
-  transform: ['translate(0px, 0px)'],
-  optionsConfig,
-};
-
-export const systemReset: TimelineDefinition = [
-  ['#fuckshit-2', resetConfig],
-  ['#fuckshit-1', resetConfig],
-  ['#fuckshit-3', resetConfig, { at: '-0.3' }],
-  ['#fuckshit-0', resetConfig],
-  ['#fuckshit-4', resetConfig, { at: '-0.3' }],
-  ['#page-nav', { transform: 'translate(0px)' }, { duration: 0.5 }],
-  ['#page-header', { transform: 'translate(0px)' }, { duration: 0.5 }],
-];
