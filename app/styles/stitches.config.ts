@@ -1,91 +1,27 @@
 import { createStitches, globalCss } from '@stitches/react';
-import { blue, green, yellow, red, grayA, blackA } from '@radix-ui/colors';
-
-export const globalStyles = globalCss({
-  /*
-    Josh's Custom CSS Reset
-    https://www.joshwcomeau.com/css/custom-css-reset/
-  */
-
-  /*
-    1. Use a more-intuitive box-sizing model.
-  */
-  '*': {
-    boxSizing: 'border-box',
-    fontFamily: 'Bodoni Moda, serif;',
-    color: 'white',
-
-    /*
-      2. Remove default margin
-    */
-    margin: 0,
-
-    '&::before, &::after': {
-      boxSizing: 'border-box',
-    },
-  },
-
-  'button, input,optgroup, select, textarea': {
-    fontFamily: 'inherit' /* 1 */,
-    fontSize: '100%' /* 1 */,
-    border: 'none',
-  },
-
-  /*
-    3. Allow percentage-based heights in the application
-  */
-  'html, body': {
-    height: '100%',
-  },
-
-  /*
-    Typographic tweaks!
-      4. Add accessible line-height
-      5. Improve text rendering
-  */
-  body: {
-    background: 'rgb(21, 23, 24)',
-    lineHeight: 1.5,
-    '-webkit-font-smoothing': 'antialiased',
-  },
-
-  /*
-    6. Improve media defaults
-  */
-  'img, picture, video, canvas, svg': {
-    display: 'block',
-    maxWidth: '100%',
-  },
-
-  /*
-    7. Remove built-in form typography styles
-  */
-  'input, button, textarea, select': {
-    font: 'inherit',
-  },
-
-  /*
-    8. Avoid text overflows
-  */
-  'p, h1, h2, h3, h4, h5, h6': {
-    overflowWrap: 'break-word',
-  },
-
-  /*
-    9. Create a root stacking context
-  */
-  '#root, #__next': {
-    isolation: 'isolate',
-  },
-
-  '@media (prefers-reduced-motion)': {
-    transition: 'none',
-  },
-});
+import {
+  blue,
+  green,
+  yellow,
+  red,
+  grayA,
+  blackA,
+  tomatoDark,
+  cyanDark,
+  limeDark,
+} from '@radix-ui/colors';
+// import { cyan } from '@radix-ui/colors/types/dark/cyan';
+// import { tomato } from '@radix-ui/colors/types/dark/tomato';
+// import { lime } from '@radix-ui/colors/types/dark/lime';
 
 const { css, keyframes, getCssText, theme, createTheme, config, styled } =
   createStitches({
     theme: {
+      space: {
+        space4: 4,
+        space8: 8,
+        space16: 16,
+      },
       radii: {
         br: '4px',
       },
@@ -94,6 +30,10 @@ const { css, keyframes, getCssText, theme, createTheme, config, styled } =
         ...green,
         ...yellow,
         ...red,
+
+        ...tomatoDark,
+        ...cyanDark,
+        ...limeDark,
 
         accent1: '$blue1',
         accent2: '$blue2',
@@ -188,6 +128,88 @@ const { css, keyframes, getCssText, theme, createTheme, config, styled } =
       }),
     },
   });
+
+export const globalStyles = globalCss({
+  /*
+    Josh's Custom CSS Reset
+    https://www.joshwcomeau.com/css/custom-css-reset/
+  */
+
+  /*
+    1. Use a more-intuitive box-sizing model.
+  */
+  '*': {
+    boxSizing: 'border-box',
+    fontFamily: 'Bodoni Moda, serif;',
+    color: 'white',
+
+    /*
+      2. Remove default margin
+    */
+    margin: 0,
+
+    '&::before, &::after': {
+      boxSizing: 'border-box',
+    },
+  },
+
+  'button, input,optgroup, select, textarea': {
+    fontFamily: 'inherit' /* 1 */,
+    fontSize: '100%' /* 1 */,
+    border: 'none',
+  },
+
+  /*
+    3. Allow percentage-based heights in the application
+  */
+  'html, body': {
+    height: '100%',
+  },
+
+  /*
+    Typographic tweaks!
+      4. Add accessible line-height
+      5. Improve text rendering
+  */
+  body: {
+    background: 'rgb(21, 23, 24)',
+    lineHeight: 1.5,
+    '-webkit-font-smoothing': 'antialiased',
+  },
+
+  /*
+    6. Improve media defaults
+  */
+  'img, picture, video, canvas, svg': {
+    display: 'block',
+    maxWidth: '100%',
+  },
+
+  /*
+    7. Remove built-in form typography styles
+  */
+  'input, button, textarea, select': {
+    font: 'inherit',
+  },
+
+  /*
+    8. Avoid text overflows
+  */
+  'p, h1, h2, h3, h4, h5, h6': {
+    overflowWrap: 'break-word',
+  },
+
+  /*
+    9. Create a root stacking context
+  */
+  '#root, #__next': {
+    isolation: 'isolate',
+  },
+
+  '@media (prefers-reduced-motion)': {
+    transition: 'none',
+  },
+});
 
 export {
   styled as lol, // intellisense in vscode suggests { styled } from the radix library

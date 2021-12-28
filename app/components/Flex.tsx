@@ -1,6 +1,6 @@
 import { styled } from '~/styles/stitches.config';
 
-// think variant as the set of styles that are applied when we use this value
+// think of variant as the set of styles that are applied when we use this value
 
 export const Flex = styled('div', {
   // implicitly have Flex default to display='flex' defaults
@@ -37,6 +37,18 @@ export const Flex = styled('div', {
       },
     },
 
+    spacing: {
+      space4: {
+        gap: '$space4',
+      },
+      space8: {
+        gap: '$space8',
+      },
+      space16: {
+        gap: '$space16',
+      },
+    },
+
     // shorthand for centering bc im a dummy & always forget about the axis flipping on my ass w/o warning with flex-direction
     layout: {
       centerColumn: {
@@ -44,9 +56,18 @@ export const Flex = styled('div', {
         alignItems: 'center',
       },
 
+      startColumn: {
+        flexDirection: 'column',
+        alignItems: 'start',
+      },
+
       centerRow: {
         flexDirection: 'row',
         justifyContent: 'center',
+      },
+
+      rowStart: {
+        flexDirection: 'row',
       },
     },
   },

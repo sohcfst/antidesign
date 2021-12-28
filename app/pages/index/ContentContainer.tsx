@@ -1,11 +1,10 @@
-import { createContext, useState } from 'react';
 import { Flex } from '~/components/Flex';
+import { StyledPill } from '~/components/Pills';
 import { LinkTray } from '~/components/Sidebar/Sidebar';
 import { H1 } from '~/components/Typography/Header';
 import { Paragraph } from '~/components/Typography/Text';
 import { styled } from '~/styles/stitches.config';
 import { artifacts } from './artifacts.constants';
-import { onMouseEnter, onMouseLeave, useCardContext } from './CardProvider';
 
 interface HeaderContainerProps {
   children: React.ReactNode;
@@ -93,7 +92,9 @@ const Card = styled(Flex, {
       transform: 'scale(0.995)',
     },
   },
+  justifyContent: 'space-between',
 });
+
 export const ContentContainer = () => {
   return (
     <Flex
@@ -123,14 +124,27 @@ export const ContentContainer = () => {
         },
       }}
     >
-      {artifacts.slice(0, 5).map((lol, i) => {
+      {artifacts.slice(0, 5).map((artifact, i) => {
         const id = `fuckshit-${i}`;
+
         return (
-          <Card className="card">
-            <Paragraph css={{ fontSize: 24 }}>{lol.title}</Paragraph>
-            <Paragraph css={{ fontFamily: 'jetbrains mono' }}>
-              {lol.date}
-            </Paragraph>
+          <Card className="card" key={id}>
+            <Flex layout={'startColumn'}>
+              <Paragraph css={{ fontSize: 24 }}>{artifact.title}</Paragraph>
+              <Paragraph css={{ fontFamily: 'jetbrains mono' }}>
+                {artifact.date}
+              </Paragraph>
+            </Flex>
+
+            <Flex layout={'rowStart'} spacing={'space8'}>
+              {artifact.labels.map((label) => {
+                return (
+                  <StyledPill key={id} pillType={label}>
+                    {label}
+                  </StyledPill>
+                );
+              })}
+            </Flex>
           </Card>
         );
       })}
