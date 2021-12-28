@@ -1,4 +1,5 @@
 import { animate, timeline } from 'motion';
+import { TimelineDefinition } from 'motion/types/targets/dom/timeline/types';
 import { useEffect, useState } from 'react';
 import { Flex } from '~/components/Flex';
 import { StyledPill } from '~/components/Pills';
@@ -15,6 +16,7 @@ interface HeaderContainerProps {
 
 export const HeaderContainer = ({ children }: HeaderContainerProps) => (
   <Flex
+    id="page-header"
     layout={'centerColumn'}
     css={{
       width: 1192,
@@ -40,6 +42,7 @@ export const HeaderContainer = ({ children }: HeaderContainerProps) => (
 
 export const NavContainer = () => (
   <Flex
+    id="page-nav"
     css={{
       width: 264,
       border: '1px solid white',
@@ -66,7 +69,7 @@ const Card = styled(Flex, {
     2px 4px 4px hsl(220deg 100% 100% / 0.5)`,
   cursor: 'pointer',
   '&:hover': {
-    transform: 'scale(1.205)',
+    transform: 'scale(1.005)',
     transition: 'all .2s cubic-bezier(0.1, 0.7, 1.0, 0.1)',
     '&:active': {
       transform: 'scale(0.995)',
@@ -104,12 +107,12 @@ const StyledContentContainer = styled(Flex, {
 export const ContentContainer = () => {
   const [systemEngaged, setSystemEngaged] = useState(false);
 
-  const onCardClick = (delay: number, id: string) => {
+  const onCardClick = () => {
     if (systemEngaged) {
       setSystemEngaged(false);
-      timeline(sequence1, {});
+      timeline(sequence1 as TimelineDefinition, {});
     } else {
-      timeline(sequence2);
+      timeline(sequence2 as TimelineDefinition);
       setSystemEngaged(true);
     }
   };
@@ -120,12 +123,7 @@ export const ContentContainer = () => {
         const id = `fuckshit-${i}`;
 
         return (
-          <Card
-            id={id}
-            className="card"
-            key={id}
-            onClick={() => onCardClick(i + 1, id)}
-          >
+          <Card id={id} className="card" key={id} onClick={() => onCardClick()}>
             <Flex layout={'startColumn'}>
               <Paragraph css={{ fontSize: 24 }}>{artifact.title}</Paragraph>
               <Paragraph css={{ fontFamily: 'jetbrains mono' }}>

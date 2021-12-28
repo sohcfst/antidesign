@@ -1,6 +1,8 @@
+import { timeline } from 'motion';
 import { Button } from '~/components/Button';
 import { Flex } from '~/components/Flex';
 import { NoiseBackground } from '~/components/Noise';
+import { systemInit } from '~/pages/index/animation.constants';
 import { CardProvider } from '~/pages/index/CardProvider';
 import { HeaderContainer } from '~/pages/index/ContentContainer';
 
@@ -16,6 +18,7 @@ export default function Index() {
       <Flex css={{ py: 40 }} layout={'centerColumn'}>
         <NoiseBackground />
         <Flex
+          id="page-button-container"
           css={{
             position: 'absolute',
             top: 16,
@@ -23,7 +26,7 @@ export default function Index() {
             gap: 16,
           }}
         >
-          <Button>SYSTEM.__init()</Button>
+          <Button onClick={() => timeline(systemInit)}>SYSTEM.__init()</Button>
           <Button>SYSTEM.__exit()</Button>
         </Flex>
         <HeaderContainer>A N T I D E S I G N</HeaderContainer>

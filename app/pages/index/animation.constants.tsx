@@ -1,3 +1,5 @@
+import { TimelineDefinition } from 'motion/types/targets/dom/timeline/types';
+
 const transformConfig = {
   transform: ['translateX(0px)', 'translateX(820px)', 'translateX(800px)'],
 };
@@ -19,4 +21,56 @@ export const sequence1 = [
   ['#fuckshit-2', { transform: 'translateX(0px)' }, { at: '+0.1' }],
   ['#fuckshit-3', { transform: 'translateX(0px)' }, { at: '+0.1' }],
   ['#fuckshit-4', { transform: 'translateX(0px)' }, { at: '+0.1' }],
+];
+
+const transformJerkConfig0 = {
+  transform: [
+    'translate(0px, 0px)',
+    'translate(18px, -124px)',
+    'translate(12px, -114px)',
+  ],
+  optionsConfig,
+};
+
+const transformJerkConfig1 = {
+  transform: [
+    'translate(0px, 0px)',
+    'translate(114px, -72px)',
+    'translate(100px, -65px)',
+  ],
+  optionsConfig,
+};
+
+const transformJerkConfig2 = {
+  transform: ['translate(0px)', 'translate(140px)', 'translate(130px'],
+  optionsConfig,
+};
+
+const transformJerkConfig3 = {
+  transform: [
+    'translate(0px, 0px)',
+    'translate(114px, 72px)',
+    'translate(112px, 65px)',
+  ],
+  optionsConfig,
+};
+
+const transformJerkConfig4 = {
+  transform: [
+    'translate(0px, 0px)',
+    'translate(18px, 124px)',
+    'translate(12px, 114px)',
+  ],
+  optionsConfig,
+};
+
+export const systemInit: TimelineDefinition = [
+  ['#page-nav', { transform: 'translate(-500px)' }],
+  ['#page-header', { transform: 'translate(-10000px)' }],
+  ['#page-button-container', { transform: 'translate(500px)' }],
+  ['#fuckshit-0', transformJerkConfig0],
+  ['#fuckshit-1', transformJerkConfig1],
+  ['#fuckshit-2', transformJerkConfig2],
+  ['#fuckshit-3', transformJerkConfig3],
+  ['#fuckshit-4', transformJerkConfig4],
 ];
