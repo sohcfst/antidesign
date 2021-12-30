@@ -1,42 +1,41 @@
-import { spring } from 'motion';
-import { TimelineDefinition } from 'motion/types/targets/dom/timeline/types';
+import { animate, spring } from 'motion';
+import {
+  TimelineDefinition,
+  TimelineSegment,
+} from 'motion/types/targets/dom/timeline/types';
 
-const optionsConfig = {
-  offset: [0, 0.5, 1],
-  transform: {},
+const spring_config = {
+  duration: 0.1,
+  x: { easing: spring({ velocity: 2000, stiffness: 1000, damping: 100 }) },
+  y: { easing: spring({ velocity: 2000, stiffness: 1000, damping: 100 }) },
 };
 
-const transformJerkConfig1 = {
-  transform: ['translate(0px, 0px)', 'translate(70px, -65px)'],
-  optionsConfig,
-};
+const ELEMENT_0_ID = '#fuckshit-0';
+const keyframe_0 = { x: [0, 12], y: [0, -114] };
+const animation_0: TimelineSegment = [ELEMENT_0_ID, keyframe_0, spring_config];
 
-const transformJerkConfig2 = {
-  transform: ['translate(0px)', 'translate(120px)', 'translate(110px'],
-  optionsConfig,
-};
+const ELEMENT_1_ID = '#fuckshit-1';
+const keyframe_1 = { x: [0, 70], y: [0, -65] };
+const animation_1: TimelineSegment = [ELEMENT_1_ID, keyframe_1, spring_config];
 
-const transformJerkConfig3 = {
-  transform: ['translate(0px, 0px)', 'translate(70px, 65px)'],
-  optionsConfig,
-};
+const ELEMENT_2_ID = '#fuckshit-2';
+const keyframe_2 = { x: [0, 100], y: [0, 0] };
+const animation_2: TimelineSegment = [ELEMENT_2_ID, keyframe_2, spring_config];
 
-const transformJerkConfig4 = {
-  transform: ['translate(0px, 0px)', 'translate(12px, 114px)'],
-  optionsConfig,
-};
+const ELEMENT_3_ID = '#fuckshit-3';
+const keyframe_3 = { x: [0, 70], y: [0, 65] };
+const animation_3: TimelineSegment = [ELEMENT_3_ID, keyframe_3, spring_config];
 
-const transformConfig0 = {
-  transform: ['translate(0px, 0px)', 'translate(12px, -114px)'],
-  optionsConfig,
-};
+const ELEMENT_4_ID = '#fuckshit-4';
+const keyframe_4 = { x: [0, 12], y: [0, 114] };
+const animation_4: TimelineSegment = [ELEMENT_4_ID, keyframe_4, spring_config];
 
 export const systemInit: TimelineDefinition = [
-  // ['#page-nav', { transform: 'translate(-700px)' }, { duration: 0.5 }],
-  // ['#page-header', { transform: 'translateY(-300px)' }, { duration: 0.5 }],
-  ['#fuckshit-0', { x: [0, 100] }, { duration: 0.1, easing: spring() }],
-  ['#fuckshit-1', { x: [0, 100] }, { duration: 0.1, easing: spring() }],
-  // ['#fuckshit-1', transformJerkConfig1],
-  // ['#fuckshit-3', transformJerkConfig3, { at: '-0.3' }],
-  // ['#fuckshit-2', transformJerkConfig2],
+  ['#page-nav', { transform: 'translate(-700px)' }, { duration: 0.5 }],
+  ['#page-header', { transform: 'translateY(-300px)' }, { duration: 0.5 }],
+  animation_0,
+  animation_4,
+  animation_2,
+  animation_1,
+  animation_3,
 ];
