@@ -1,23 +1,21 @@
-import { timeline } from 'motion';
-import { Button } from '~/components/Button';
-import { Flex } from '~/components/Flex';
-import { NoiseBackground } from '~/components/Noise';
-import { systemInit } from '~/pages/index/animations/init.constants';
+import { Outlet } from 'remix';
 
-import { systemReset } from '~/pages/index/animations/reset.constants';
+import { Flex } from '~/rest/components/Flex';
+import { NoiseBackground } from '~/rest/components/Noise';
+import { ButtonContainer } from '~/rest/pages/index/ButtonContainer';
 
-import { HeaderContainer } from '~/pages/index/ContentContainer';
-
-import { ContentContainer, NavContainer } from '~/pages/index/ContentContainer';
+import { ContentContainer } from '~/rest/pages/index/Content/ContentContainer';
 import {
-  GlobalProvder,
-  setIsSystemInitialized,
-  useGlobalContext,
-} from '~/pages/index/GlobalProvider';
+  HeaderContainer,
+  NavContainer,
+} from '~/rest/pages/index/Content/StyledContentContainer';
+
+import { GlobalProvder } from '~/rest/pages/index/GlobalProvider';
 
 export default function Index() {
   return (
     <GlobalProvder>
+      <Outlet />
       <Flex css={{ py: 40 }} layout={'centerColumn'}>
         <NoiseBackground />
         <HeaderContainer>A N T I D E S I G N</HeaderContainer>
@@ -38,33 +36,3 @@ export default function Index() {
     </GlobalProvder>
   );
 }
-
-export const ButtonContainer = () => {
-  const { state, dispatch } = useGlobalContext();
-
-  return (
-    <Flex
-      id="page-button-container"
-      css={{
-        position: 'absolute',
-        top: 16,
-        left: 16,
-        gap: 16,
-      }}
-    >
-      <Button
-        onClick={() => {
-          if (state.isSystemInitialized) {
-            dispatch(setIsSystemInitialized({ isSystemInitialized: false }));
-            timeline(systemReset);
-          } else {
-            dispatch(setIsSystemInitialized({ isSystemInitialized: true }));
-            timeline(systemInit);
-          }
-        }}
-      >
-        {state.isSystemInitialized ? 'SYSTEM.__reset()' : 'SYSTEM.__init()'}
-      </Button>
-    </Flex>
-  );
-};

@@ -1,7 +1,7 @@
 import type { MetaFunction } from 'remix';
 import { getCssText, globalStyles } from './styles/stitches.config';
-import { Head } from './pages/root/Head';
-import { AllThatBullShit } from './pages/root/AllThatBullshit';
+import { Head } from './rest/pages/root/Head';
+import { AllThatBullShit } from './rest/pages/root/AllThatBullshit';
 
 export const meta: MetaFunction = () => {
   return { title: 'antidesign' };

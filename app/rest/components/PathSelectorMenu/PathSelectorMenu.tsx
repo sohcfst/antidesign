@@ -46,7 +46,7 @@ const StyledDropdownTrigger = styled(DropdownMenu.Trigger, {
   py: 4,
 
   '&:hover': {
-    transform: 'scale(1.05)',
+    transform: 'scale(1.07)',
     background: 'white',
     color: '$stitchesGrey',
   },
@@ -72,11 +72,12 @@ const StyledDropdownMenuArrow = styled(DropdownMenu.Arrow, {
 interface PathSelectorMenuProps {
   route: Routes;
 }
+
 export const PathSelectorMenu = ({ route }: PathSelectorMenuProps) => {
   const [isSelected, setIsSelected] = useState(false);
   const handleClick = () => {
     setIsSelected(true);
-    console.log('lol');
+
     animate('#artifact-route', {
       transform: 'translateX(100px)',
     });
