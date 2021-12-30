@@ -5,6 +5,7 @@ export const StyledPill = styled('strong', {
   width: 'fit-content',
   px: 12,
   py: 2,
+  fontSize: 14,
 
   variants: {
     pillType: {

@@ -141,7 +141,7 @@ export const ContentContainer = () => {
             onClick={() => onCardClick(id)}
           >
             <Flex layout={'startColumn'}>
-              <Paragraph css={{ fontSize: 20 }}>{artifact.title}</Paragraph>
+              <Paragraph css={{ fontSize: 18 }}>{artifact.title}</Paragraph>
               <Paragraph css={{ fontFamily: 'jetbrains mono', fontSize: 14 }}>
                 {artifact.date}
               </Paragraph>

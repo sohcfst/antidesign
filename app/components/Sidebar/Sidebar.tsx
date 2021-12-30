@@ -23,6 +23,7 @@ export enum Routes {
   sonicdreams = 'sonicdreams',
   system = 'system',
   artifacts = 'artifacts',
+  index = '/',
 }
 
 export const LinkTray = () => {
@@ -31,13 +32,14 @@ export const LinkTray = () => {
       <Paragraph css={{ textDecoration: 'underline' }}>
         P A T H S E L E C T O R
       </Paragraph>
-      <StyledLinky className="link" to="/">
-        /
-      </StyledLinky>
-      <PathSelectorMenu />
-      <PathSelectorMenu />
-      <PathSelectorMenu />
-      <PathSelectorMenu />
+
+      <PathSelectorMenu route={Routes.index} />
+
+      <PathSelectorMenu route={Routes.artifacts} />
+
+      <PathSelectorMenu route={Routes.playground} />
+
+      <PathSelectorMenu route={Routes.system} />
     </Toolbar>
   );
 };
