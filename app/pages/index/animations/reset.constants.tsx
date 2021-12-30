@@ -13,7 +13,7 @@ const headerJerkConfig = {
 };
 
 const navJerkConfig = {
-  transform: ['translateX(-500px)', 'translateX(10px)', 'translateX(0px)'],
+  transform: ['translateX(-700px)', 'translateX(10px)', 'translateX(0px)'],
   optionsConfig,
 };
 

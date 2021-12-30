@@ -62,6 +62,7 @@ export const ButtonContainer = () => {
             dispatch(setIsSystemInitialized({ isSystemInitialized: false }));
             timeline(systemReset);
           } else {
+            console.log(true);
             dispatch(setIsSystemInitialized({ isSystemInitialized: true }));
             timeline(systemInit);
           }

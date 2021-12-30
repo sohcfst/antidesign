@@ -8,7 +8,7 @@ import { H1 } from '~/components/Typography/Header';
 import { Paragraph } from '~/components/Typography/Text';
 
 import { styled } from '~/styles/stitches.config';
-import { sequence1, sequence2 } from './animations/init.constants';
+import { sequence1, sequence2 } from './animations/slideSequence';
 
 import { artifacts } from './artifacts.constants';
 import { setArtifact, useGlobalContext } from './GlobalProvider';
@@ -141,8 +141,8 @@ export const ContentContainer = () => {
             onClick={() => onCardClick(id)}
           >
             <Flex layout={'startColumn'}>
-              <Paragraph css={{ fontSize: 24 }}>{artifact.title}</Paragraph>
-              <Paragraph css={{ fontFamily: 'jetbrains mono' }}>
+              <Paragraph css={{ fontSize: 20 }}>{artifact.title}</Paragraph>
+              <Paragraph css={{ fontFamily: 'jetbrains mono', fontSize: 14 }}>
                 {artifact.date}
               </Paragraph>
             </Flex>

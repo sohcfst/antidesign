@@ -13,17 +13,7 @@ export default function PlaygroundRoute() {
   return (
     <Flex css={{ py: 40 }} layout={'centerColumn'}>
       <NoiseBackground />
-      <Flex
-        css={{
-          position: 'absolute',
-          top: 16,
-          right: 16,
-          gap: 16,
-        }}
-      >
-        <Button>SYSTEM.__init()</Button>
-        <Button>SYSTEM.__exit()</Button>
-      </Flex>
+
       <HeaderContainer>P L A Y G R O U N D</HeaderContainer>
       <Flex
         css={{
