@@ -3,15 +3,22 @@ import { styled } from '~/styles/stitches.config';
 
 import { Toolbar } from './StyledSidebar';
 import { Paragraph } from '../Typography/Text';
+import { PathSelectorMenu } from '../PathSelectorMenu/PathSelectorMenu';
 
-const StyledLinky = styled(Link, {
+export const StyledLinky = styled(Link, {
   textDecoration: 'none',
   fontWeight: 'bold',
   fontSize: '16px',
   width: '100%',
+  display: 'inline-block',
+  px: 16,
+
+  '&:hover': {
+    color: 'black',
+  },
 });
 
-enum Routes {
+export enum Routes {
   playground = 'playground',
   sonicdreams = 'sonicdreams',
   system = 'system',
@@ -24,26 +31,13 @@ export const LinkTray = () => {
       <Paragraph css={{ textDecoration: 'underline' }}>
         P A T H S E L E C T O R
       </Paragraph>
-
       <StyledLinky className="link" to="/">
         /
       </StyledLinky>
-
-      <StyledLinky className="link" to={`/${Routes.artifacts}`}>
-        / {Routes.artifacts}
-      </StyledLinky>
-
-      <StyledLinky className="link" to={`/${Routes.system}`}>
-        / {Routes.system}
-      </StyledLinky>
-
-      <StyledLinky className="link" to={`/${Routes.playground}`}>
-        / {Routes.playground}
-      </StyledLinky>
-
-      {/* <StyledLinky className="link" to={`/${Routes.sonicdreams}`}>
-        / {Routes.sonicdreams}
-      </StyledLinky> */}
+      <PathSelectorMenu />
+      <PathSelectorMenu />
+      <PathSelectorMenu />
+      <PathSelectorMenu />
     </Toolbar>
   );
 };

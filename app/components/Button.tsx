@@ -1,7 +1,7 @@
 import { styled } from '~/styles/stitches.config';
 
 export const Button = styled('button', {
-  px: 16,
+  minWidth: 170,
   py: 8,
   unset: 'all',
   inset: 'none',

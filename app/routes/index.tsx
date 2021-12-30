@@ -15,11 +15,7 @@ import {
   useGlobalContext,
 } from '~/pages/index/GlobalProvider';
 
-import { globalStyles } from '~/styles/stitches.config';
-
 export default function Index() {
-  globalStyles();
-
   return (
     <GlobalProvder>
       <Flex css={{ py: 40 }} layout={'centerColumn'}>
@@ -62,7 +58,6 @@ export const ButtonContainer = () => {
             dispatch(setIsSystemInitialized({ isSystemInitialized: false }));
             timeline(systemReset);
           } else {
-            console.log(true);
             dispatch(setIsSystemInitialized({ isSystemInitialized: true }));
             timeline(systemInit);
           }
