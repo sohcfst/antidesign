@@ -13,6 +13,9 @@ const StyledDropdownMenuContent = styled(DropdownMenu.Content, {
   width: 150,
   boxShadow: `0.7px 1.2px 1.2px hsl(220deg 100% 100% / 0.5)`,
   fontSize: 12,
+  gap: 12,
+  display: 'flex',
+  flexDirection: 'column',
 });
 
 const slide = keyframes({

@@ -27,7 +27,7 @@ export const loader: LoaderFunction = async () => {
   return data;
 };
 
-export default function SystemIndexRoute() {
+export default function ArtifactsIndexRoute() {
   const { images } = useLoaderData();
 
   console.log(images);
@@ -35,7 +35,9 @@ export default function SystemIndexRoute() {
   return (
     <GlobalProvder>
       <Flex layout={'centerColumn'}>
-        <HeaderContainer>A N T I D E S I G N // S Y S T E M</HeaderContainer>
+        <HeaderContainer>
+          A N T I D E S I G N // A R T I F A C T S
+        </HeaderContainer>
         <ButtonContainer />
         <ContentContainer />
       </Flex>

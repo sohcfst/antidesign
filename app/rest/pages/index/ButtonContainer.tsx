@@ -14,7 +14,7 @@ export const ButtonContainer = () => {
       css={{
         position: 'absolute',
         top: 16,
-        left: 16,
+        left: 24,
         gap: 16,
       }}
     >
