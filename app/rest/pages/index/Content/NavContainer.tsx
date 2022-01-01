@@ -15,8 +15,8 @@ export const NavContainer = () => (
       height: '950px',
       flex: '950px',
       alignSelf: 'end',
-      position: 'fixed',
-      left: 24,
+      // position: 'fixed',
+      left: 200,
       top: 132,
     }}
   >

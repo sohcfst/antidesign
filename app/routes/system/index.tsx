@@ -30,14 +30,13 @@ export const loader: LoaderFunction = async () => {
 export default function SystemIndexRoute() {
   const { images } = useLoaderData();
 
-  console.log(images);
-
   return (
     <GlobalProvder>
       <Flex layout={'centerColumn'}>
         <HeaderContainer>A N T I D E S I G N // S Y S T E M</HeaderContainer>
         <ButtonContainer />
-        <ContentContainer />
+        <Flex css={{ width: 948 }}></Flex>
+        <div>wip</div>
       </Flex>
     </GlobalProvder>
   );

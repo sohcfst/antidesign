@@ -28,7 +28,7 @@ const MemoryScroller = () => {
             width: '864px',
             background: `linear-gradient(175deg, ${gradientString}, ${gradientString}, ${gradientString})`,
             zIndex: 0,
-            // backgroundBlendMode: 'screen',
+
             position: 'relative',
             paddingTop: 200,
             br: 8,

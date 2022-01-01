@@ -9,6 +9,8 @@ import {
   cyanDark,
   limeDark,
   yellowDark,
+  mauve,
+  mauveDark,
 } from '@radix-ui/colors';
 
 const { css, keyframes, getCssText, theme, createTheme, config, styled } =
@@ -28,11 +30,13 @@ const { css, keyframes, getCssText, theme, createTheme, config, styled } =
         ...yellow,
         ...red,
         ...whiteA,
+        ...mauve,
 
         ...tomatoDark,
         ...cyanDark,
         ...limeDark,
         ...yellowDark,
+        ...mauveDark,
 
         stitchesGrey: 'rgb(21, 23, 24)',
       },

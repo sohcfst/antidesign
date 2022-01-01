@@ -15,13 +15,14 @@ import { NavContainer } from './rest/pages/index/Content/NavContainer';
 export const meta: MetaFunction = () => {
   return { title: 'antidesign' };
 };
+
 const ThreeNoiseBackground = () => (
   <>
     <NoiseBackground />
     <NoiseBackground />
-    <NoiseBackground />
   </>
 );
+
 export default function App() {
   globalStyles();
   return (
@@ -32,7 +33,7 @@ export default function App() {
           <ThreeNoiseBackground />
           <Flex css={{ py: 40 }} layout={'centerColumn'}>
             <ButtonContainer />
-            <NavContainer />
+
             <Flex
               css={{
                 height: '80vh',
@@ -42,6 +43,7 @@ export default function App() {
                 justifyContent: 'center',
               }}
             >
+              <NavContainer />
               <Outlet />
             </Flex>
           </Flex>
