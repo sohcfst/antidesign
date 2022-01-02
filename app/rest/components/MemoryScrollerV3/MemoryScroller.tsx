@@ -103,7 +103,7 @@ const MemoryScroller = () => {
           <Flex
             layout={'centerColumn'}
             css={{
-              py: 500,
+              py: 250,
               margin: '0 auto',
               height: '100%',
             }}
