@@ -12,8 +12,13 @@ const headerJerkConfig = {
   optionsConfig,
 };
 
-const navJerkConfig = {
+const pathselectorSpringConfig = {
   transform: ['translateX(-700px)', 'translateX(10px)', 'translateX(0px)'],
+  optionsConfig,
+};
+
+const controllerSpringConfig = {
+  transform: ['translateX(700px)', 'translateX(10px)', 'translateX(0px)'],
   optionsConfig,
 };
 
@@ -64,6 +69,12 @@ export const systemReset: TimelineDefinition = [
   ['#fuckshit-3', transformJerkConfig3, { at: '-0.3' }],
   ['#fuckshit-0', transformJerkConfig0],
   ['#fuckshit-4', resetConfig, { at: '-0.3' }],
-  ['#page-nav', navJerkConfig, { duration: 0.45 }],
+  ['#page-nav', pathselectorSpringConfig, { duration: 0.45 }],
+  [
+    '#pathselector-nav',
+    pathselectorSpringConfig,
+    { duration: 0.45, at: '-0.3' },
+  ],
+  ['#controller-nav', controllerSpringConfig, { duration: 0.45, at: '-0.3' }],
   ['#page-header', headerJerkConfig, { duration: 0.45 }],
 ];

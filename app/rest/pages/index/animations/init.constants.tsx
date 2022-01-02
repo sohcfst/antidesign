@@ -31,8 +31,17 @@ const keyframe_4 = { x: [0, 12], y: [0, 114] };
 const animation_4: TimelineSegment = [ELEMENT_4_ID, keyframe_4, spring_config];
 
 export const systemInit: TimelineDefinition = [
-  ['#page-nav', { transform: 'translate(-700px)' }, { duration: 0.4 }],
   ['#page-header', { transform: 'translateY(-300px)' }, { duration: 0.4 }],
+  [
+    '#pathselector-nav',
+    { transform: 'translate(-700px)' },
+    { duration: 0.4, at: '-0.3' },
+  ],
+  [
+    '#controller-nav',
+    { transform: 'translate(700px)' },
+    { duration: 0.4, at: '-0.3' },
+  ],
   animation_0,
   animation_4,
   animation_2,

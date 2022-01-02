@@ -30,6 +30,8 @@ export default function ArtifactId() {
             fontWeight: 'bold',
             py: '50%',
             border: '1px solid white',
+            width: 346,
+            background: 'white',
           }}
         >
           <H2>

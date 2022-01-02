@@ -32,12 +32,14 @@ const rootPaths = ['/', '/artifacts', '/playground', '/system'];
 
 const artifactPaths = ['/_001', '/_002', '/_003'];
 
-export const LinkTray = () => {
+interface LinkTrayProps {
+  title: string;
+}
+
+export const LinkTray = ({ title }: LinkTrayProps) => {
   return (
     <StyledToolbar orientation="vertical">
-      <Paragraph css={{ textDecoration: 'underline' }}>
-        P A T H S E L E C T O R
-      </Paragraph>
+      <Paragraph css={{ textDecoration: 'underline' }}>{title}</Paragraph>
 
       <PathSelectorMenu route={Routes.index} paths={rootPaths} />
 

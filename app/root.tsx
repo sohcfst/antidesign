@@ -38,13 +38,17 @@ export default function App() {
           <ButtonContainer />
 
           <SiteFlex role="navigation">
-            <SidebarFlex>
-              <NavContainer />
+            <SidebarFlex id="pathselector-nav">
+              <NavContainer title={'P A T H S E L E C T O R'} />
             </SidebarFlex>
 
             <ContentFlex layout={'centerColumn'} role="main">
               <Outlet />
             </ContentFlex>
+
+            <SidebarFlex id="controller-nav">
+              <NavContainer title={'S Y S C O N T O L L E R'} />
+            </SidebarFlex>
           </SiteFlex>
         </GlobalProvder>
         <AllThatBullShit />

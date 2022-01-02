@@ -7,16 +7,17 @@ export default function MetaInspectorIndexRoute() {
     <Flex
       layout="centerColumn"
       css={{
-        height: '100%',
-        width: '100%',
         br: 8,
         fontWeight: 'bold',
         py: '50%',
-        background: '$stitchesGrey',
+        border: '1px solid white',
+        width: 246,
+        height: '100%',
+        background: 'white',
       }}
     >
       <H2>
-        {'- .. ['} research in progress {'] .. -'}
+        {'- .. [ -'} research in progress {'- ] .. -'}
       </H2>
     </Flex>
   );
