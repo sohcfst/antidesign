@@ -39,7 +39,7 @@ const urls = [GG_BRIDGE, HEAVEN, LAKE_MERRIT];
 // is there an easy way to figure out what element we're inspecting? that's something i like about styled components
 
 const StyledScrollArea = styled(ScrollAreaPrimitive.Root, {
-  width: 1192,
+  // width: 1192,
   height: 948,
   borderRadius: 4,
   overflow: 'hidden',
@@ -139,14 +139,7 @@ const MemoryScroller = () => {
   const gradientString = `${sky.sky5}, white`;
 
   return (
-    <Flex
-      css={{
-        border: '1px solid white',
-        br: 8,
-      }}
-      flexDirection="column"
-      alignItems="center"
-    >
+    <>
       <H1>SYSTEM : NOSTALGIA</H1>
       <StyledScrollArea>
         <StyledViewport ref={ref}>
@@ -154,7 +147,6 @@ const MemoryScroller = () => {
             layout={'centerColumn'}
             css={{
               py: 500,
-              width: '100%',
               height: '100%',
               background: `linear-gradient(175deg, ${gradientString}, ${gradientString}, ${gradientString})`,
             }}
@@ -177,7 +169,7 @@ const MemoryScroller = () => {
                 </Memory>
               );
             })}
-            <Memory y={config.y} x={config.x}>
+            <Memory>
               <Image id={`parallax-image-100`} height={1000} src={GG_BRIDGE} />
             </Memory>
           </Flex>
@@ -187,7 +179,7 @@ const MemoryScroller = () => {
           <StyledThumb />
         </StyledScrollbar>
       </StyledScrollArea>
-    </Flex>
+    </>
   );
 };
 

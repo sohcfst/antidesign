@@ -26,6 +26,12 @@ export enum Routes {
   index = '/',
 }
 
+const playgroundPaths = ['/', '/system-nostalgia'];
+
+const rootPaths = ['/', '/artifacts', '/playground', '/system'];
+
+const artifactPaths = ['/_001', '/_002', '/_003'];
+
 export const LinkTray = () => {
   return (
     <Toolbar orientation="vertical">
@@ -33,13 +39,13 @@ export const LinkTray = () => {
         P A T H S E L E C T O R
       </Paragraph>
 
-      <PathSelectorMenu route={Routes.index} />
+      <PathSelectorMenu route={Routes.index} paths={rootPaths} />
 
-      <PathSelectorMenu route={Routes.artifacts} />
+      <PathSelectorMenu route={Routes.artifacts} paths={artifactPaths} />
 
-      <PathSelectorMenu route={Routes.playground} />
+      <PathSelectorMenu route={Routes.playground} paths={playgroundPaths} />
 
-      <PathSelectorMenu route={Routes.system} />
+      <PathSelectorMenu route={Routes.system} paths={playgroundPaths} />
     </Toolbar>
   );
 };
