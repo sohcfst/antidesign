@@ -26,42 +26,39 @@ export default function PlaygroundRoute() {
 
   return (
     <>
-      {!isSSR && (
-        <>
-          <HeaderContainer> A N T I D E S I G N // L A B</HeaderContainer>
+      <Flex layout={'centerColumn'}>
+        <HeaderContainer>/ P L A Y G R O U N D</HeaderContainer>
+        <Flex
+          css={{
+            height: '80vh',
+            br: 8,
+            z: 1,
+          }}
+        >
           <Flex
+            layout="centerColumn"
             css={{
-              height: '80vh',
+              height: '100%',
               br: 8,
-              z: 1,
-              pt: 90,
+
+              px: 24,
+              fontWeight: 'bold',
+              gap: 24,
             }}
           >
             <Flex
-              layout="centerColumn"
               css={{
+                width: '100%',
                 height: '100%',
-                br: 8,
-
-                px: 24,
-                fontWeight: 'bold',
-                gap: 24,
               }}
+              layout={'centerColumn'}
             >
-              <Flex
-                css={{
-                  width: '100%',
-                  height: '100%',
-                }}
-                layout={'centerColumn'}
-              >
-                <MemoryScroller />
-                <Outlet />
-              </Flex>
+              <MemoryScroller />
+              <Outlet />
             </Flex>
           </Flex>
-        </>
-      )}
+        </Flex>
+      </Flex>
     </>
   );
 }

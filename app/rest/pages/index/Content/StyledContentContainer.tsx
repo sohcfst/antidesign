@@ -1,5 +1,4 @@
 import { Flex } from '~/rest/components/Flex';
-import { LinkTray } from '~/rest/components/Sidebar/Sidebar';
 import { H1 } from '~/rest/components/Typography/Header';
 import { styled } from '~/styles/stitches.config';
 
@@ -10,13 +9,13 @@ interface HeaderContainerProps {
 export const HeaderContainer = ({ children }: HeaderContainerProps) => (
   <Flex
     id="page-header"
-    // layout={'centerColumn'}
     css={{
       height: 98,
       br: 8,
       padding: 16,
       z: 1,
       width: '100%',
+      justifyContent: 'center',
     }}
   >
     <H1

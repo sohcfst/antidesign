@@ -91,7 +91,7 @@ const { css, keyframes, getCssText, theme, createTheme, config, styled } =
       }),
 
       pl: (value: number | string) => ({
-        paddlingLeft: value,
+        paddingLeft: value,
       }),
 
       py: (value: number | string) => ({
