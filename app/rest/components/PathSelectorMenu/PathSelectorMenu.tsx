@@ -19,6 +19,8 @@ interface PathSelectorMenuProps {
 export const PathSelectorMenu = ({ route, paths }: PathSelectorMenuProps) => {
   const isDownPress = useKeyPress('40');
 
+  // const origin = window ? '' : window?.location?.origin;
+
   useEffect(() => {
     console.log();
   }, [isDownPress]);

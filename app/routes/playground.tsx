@@ -18,12 +18,10 @@ export default function PlaygroundRoute() {
             width: 912,
             br: 8,
             fontWeight: 'bold',
-            overflowX: 'visible',
           }}
-        >
-          <Outlet />
-        </Flex>
+        ></Flex>
       </Flex>
+      <Outlet />
     </>
   );
 }
