@@ -32,7 +32,7 @@ const urls = [GG_BRIDGE, HEAVEN, LAKE_MERRIT];
 
 const StyledScrollArea = styled(ScrollAreaPrimitive.Root, {
   width: 1192,
-  height: '900px',
+  height: 948,
   borderRadius: 4,
   overflow: 'hidden',
   boxShadow: `0 2px 10px ${blackA.blackA7}`,
@@ -169,18 +169,19 @@ const MemoryScroller = () => {
   const ref = useRef() as React.MutableRefObject<HTMLDivElement>;
   const { scrollY } = useElementScroll(ref);
   const config = [
-    { y: useTransform(scrollY, [0, 300], [400, -1000]), x: 100 },
-    { y: useTransform(scrollY, [0, 400], [200, -600]), x: -200 },
-    { y: useTransform(scrollY, [0, 300], [100, -1000]), x: 300 },
-    { y: useTransform(scrollY, [0, 500], [-100, -700]), x: -300 },
-    { y: useTransform(scrollY, [0, 1000], [100, -300]), x: 0 },
-    { y: useTransform(scrollY, [0, 1100], [100, -1000]), x: 150 },
-    { y: useTransform(scrollY, [0, 1200], [100, -1000]), x: -200 },
-    { y: useTransform(scrollY, [0, 1300], [100, -1000]), x: 300 },
-    { y: useTransform(scrollY, [100, 1400], [100, -1000]), x: -300 },
+    { y: useTransform(scrollY, [0, 300], [200, -1000]), x: 100 },
+    { y: useTransform(scrollY, [0, 400], [300, -600]), x: -200 },
+    { y: useTransform(scrollY, [0, 300], [300, -1000]), x: 300 },
+    { y: useTransform(scrollY, [0, 400], [300, -700]), x: -300 },
+    { y: useTransform(scrollY, [0, 500], [100, -300]), x: 0 },
+    { y: useTransform(scrollY, [0, 1100], [100, -1000]), x: 300 },
+    { y: useTransform(scrollY, [0, 1200], [100, -1000]), x: -300 },
+    { y: useTransform(scrollY, [0, 1300], [100, -1000]), x: 200 },
+    { y: useTransform(scrollY, [0, 1400], [100, -1000]), x: -300 },
+    { y: useTransform(scrollY, [0, 500], [100, -1000]), x: 350 },
   ];
 
-  const gradientString = `${sky.sky5}, white, ${purple.purple5}`;
+  const gradientString = `${sky.sky5}, white`;
 
   return (
     <Flex

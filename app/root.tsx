@@ -31,9 +31,9 @@ export default function App() {
       <body>
         <GlobalProvder>
           <ThreeNoiseBackground />
+
           <Flex css={{ py: 40 }} layout={'centerColumn'}>
             <ButtonContainer />
-
             <Flex
               css={{
                 height: '80vh',
