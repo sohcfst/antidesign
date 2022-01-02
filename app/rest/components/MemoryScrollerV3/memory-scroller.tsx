@@ -3,24 +3,24 @@ import { styled } from '~/styles/stitches.config';
 import { Children, useEffect, useRef, useState } from 'react';
 
 import { Flex } from '~/rest/components/Flex';
-import * as ScrollAreaPrimitive from '@radix-ui/react-scroll-area';
-import { blackA, green, mauve, purple, sky, whiteA } from '@radix-ui/colors';
+
+import { sky } from '@radix-ui/colors';
 import {
   motion,
   MotionValue,
   useElementScroll,
   useTransform,
 } from 'framer-motion';
-import { H1 } from '~/rest/components/Typography/Header';
+import { H2 } from '~/rest/components/Typography/Header';
 import { Paragraph } from '~/rest/components/Typography/Text';
 
+import { Image } from '~/rest/components/MemoryScrollerV2/MemoryScrollerV2.style';
 import {
-  ContentImage,
-  Image,
-  parallaxConfig,
-  StyledContent,
-  StyledOverlay,
-} from '~/rest/components/MemoryScrollerV2/MemoryScrollerV2.style';
+  StyledScrollArea,
+  StyledScrollbar,
+  StyledThumb,
+  StyledViewport,
+} from './Scrollable.styled';
 
 const LAKE_MERRIT =
   'https://avfdzphxkehjacxeupkt.supabase.in/storage/v1/object/sign/images/char.jpg?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJpbWFnZXMvY2hhci5qcGciLCJpYXQiOjE2NDA0NTkxODcsImV4cCI6MTk1NTgxOTE4N30.Z4hWTTO1EoWPatxzmN4VhlSC5leeek71k_WXjA_GSWo';
@@ -37,64 +37,6 @@ export const IG_PIC =
 const urls = [GG_BRIDGE, HEAVEN, LAKE_MERRIT];
 
 // is there an easy way to figure out what element we're inspecting? that's something i like about styled components
-
-const StyledScrollArea = styled(ScrollAreaPrimitive.Root, {
-  // width: 1192,
-  height: 948,
-  borderRadius: 4,
-  overflow: 'hidden',
-  boxShadow: `0 2px 10px ${blackA.blackA7}`,
-});
-
-const Img = styled('img', {
-  position: 'absolute',
-  top: 0,
-  left: 0,
-});
-
-const StyledViewport = styled(ScrollAreaPrimitive.Viewport, {
-  width: '100%',
-  height: '100%',
-  borderRadius: 'inherit',
-  border: '1px solid whiteA',
-});
-const SCROLLBAR_SIZE = 10;
-
-const StyledScrollbar = styled(ScrollAreaPrimitive.Scrollbar, {
-  display: 'flex',
-  // ensures no selection
-  userSelect: 'none',
-  // disable browser handling of all panning and zooming gestures on touch devices
-  touchAction: 'none',
-  padding: 2,
-  background: blackA.blackA6,
-  transition: 'background 160ms ease-out',
-  '&:hover': { background: blackA.blackA8 },
-  '&[data-orientation="vertical"]': { width: SCROLLBAR_SIZE },
-  '&[data-orientation="horizontal"]': {
-    flexDirection: 'column',
-    height: SCROLLBAR_SIZE,
-  },
-});
-
-const StyledThumb = styled(ScrollAreaPrimitive.Thumb, {
-  flex: 1,
-  background: mauve.mauve10,
-  borderRadius: SCROLLBAR_SIZE,
-  // increase target size for touch devices https://www.w3.org/WAI/WCAG21/Understanding/target-size.html
-  position: 'relative',
-  '&::before': {
-    content: '""',
-    position: 'absolute',
-    top: '50%',
-    left: '50%',
-    transform: 'translate(-50%, -50%)',
-    width: '100%',
-    height: '100%',
-    minWidth: 44,
-    minHeight: 44,
-  },
-});
 
 interface ParallaxProps {
   x?: MotionValue | number;
@@ -118,17 +60,33 @@ const Memory = ({ children, y, x }: ParallaxProps) => {
 const getConfig = (scrollY: MotionValue<number>) => {
   return [
     { y: useTransform(scrollY, [1, 200], [1, -300]), x: 0 },
-    // { y: useTransform(scrollY, [100, 100], [1000, 1]), x: 0 },
-    // { y: useTransform(scrollY, [0, 300], [300, -1000]), x: 300 },
-    // { y: useTransform(scrollY, [0, 400], [300, -700]), x: -300 },
-    // { y: useTransform(scrollY, [0, 500], [100, -300]), x: 0 },
-    // { y: useTransform(scrollY, [0, 1100], [100, -1000]), x: 300 },
-    // { y: useTransform(scrollY, [0, 1200], [100, -1000]), x: -300 },
-    // { y: useTransform(scrollY, [0, 1300], [100, -1000]), x: 200 },
-    // { y: useTransform(scrollY, [0, 1400], [100, -1000]), x: -300 },
-    // { y: useTransform(scrollY, [0, 500], [100, -1000]), x: 350 },
+    { y: useTransform(scrollY, [100, 100], [1000, 1]), x: 0 },
+    { y: useTransform(scrollY, [0, 300], [300, -1000]), x: 300 },
+    { y: useTransform(scrollY, [0, 400], [300, -700]), x: -300 },
+    { y: useTransform(scrollY, [0, 500], [100, -300]), x: 0 },
+    { y: useTransform(scrollY, [0, 1100], [100, -1000]), x: 300 },
+    { y: useTransform(scrollY, [0, 1200], [100, -1000]), x: -300 },
+    { y: useTransform(scrollY, [0, 1300], [100, -1000]), x: 200 },
+    { y: useTransform(scrollY, [0, 1400], [100, -1000]), x: -300 },
+    { y: useTransform(scrollY, [0, 500], [100, -1000]), x: 350 },
   ];
 };
+
+const gradientString = `${sky.sky5}, white`;
+
+const EtherealStrip = () => (
+  <Flex
+    css={{
+      py: 500,
+      width: 600,
+      left: '15%',
+      position: 'absolute',
+      height: '100%',
+      background: `linear-gradient(175deg, ${gradientString}, ${gradientString}, ${gradientString})`,
+      z: -1,
+    }}
+  />
+);
 
 const MemoryScroller = () => {
   const ref = useRef() as React.MutableRefObject<HTMLDivElement>;
@@ -136,24 +94,23 @@ const MemoryScroller = () => {
 
   const config = getConfig(scrollY);
 
-  const gradientString = `${sky.sky5}, white`;
-
   return (
     <>
-      <H1>SYSTEM : NOSTALGIA</H1>
-      <StyledScrollArea>
-        <StyledViewport ref={ref}>
+      <H2 css={{ pt: 24 }}>SYSTEM : NOSTALGIA</H2>
+      <StyledScrollArea css={{ width: '100%' }}>
+        <StyledViewport ref={ref} css={{ width: '100%' }}>
+          <EtherealStrip />
           <Flex
             layout={'centerColumn'}
             css={{
               py: 500,
+              // width: 805,
               height: '100%',
-              background: `linear-gradient(175deg, ${gradientString}, ${gradientString}, ${gradientString})`,
             }}
           >
             {config.map((config, i) => {
               return (
-                <Memory y={config.y} x={config.x}>
+                <Memory y={config.y} x={config.x} key={`memory-${i}`}>
                   <Paragraph css={{ color: 'black' }}>image {i}</Paragraph>
                   <Paragraph css={{ color: 'black' }}>
                     motion value: {config.y.getVelocity()}
@@ -163,15 +120,12 @@ const MemoryScroller = () => {
                   </Paragraph>
                   <Image
                     id={`parallax-image-100`}
-                    width={400}
+                    width={350}
                     src={GG_BRIDGE}
                   />
                 </Memory>
               );
             })}
-            <Memory>
-              <Image id={`parallax-image-100`} height={1000} src={GG_BRIDGE} />
-            </Memory>
           </Flex>
         </StyledViewport>
 

@@ -1,6 +1,7 @@
 import * as DropdownMenu from '@radix-ui/react-dropdown-menu';
 import { animate } from 'motion';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
+import { useKeyPress } from '~/rest/hooks/useKeyPress';
 
 import { Routes, StyledLinky } from '../Sidebar/Sidebar';
 import {
@@ -16,34 +17,28 @@ interface PathSelectorMenuProps {
 }
 
 export const PathSelectorMenu = ({ route, paths }: PathSelectorMenuProps) => {
-  const [isSelected, setIsSelected] = useState(false);
-  const handleClick = () => {
-    setIsSelected(true);
+  const isDownPress = useKeyPress('40');
 
-    animate('#artifact-route', {
-      transform: 'translateX(100px)',
-    });
-  };
+  useEffect(() => {
+    console.log();
+  }, [isDownPress]);
 
   return (
     <DropdownMenu.Root>
-      <StyledDropdownTrigger
-        id="artifact-route"
-        onClick={() => handleClick()}
-        selected={isSelected ? 'yes' : 'nah'}
-      >
+      <StyledDropdownTrigger id="artifact-route">
         {route === Routes.index ? route : `/ ${route}`}
       </StyledDropdownTrigger>
 
       <StyledDropdownMenuContent
+        className="pathselector-menu-content"
         side="right"
         align="start"
-        sideOffset={30}
+        sideOffset={28}
         alignOffset={-14}
       >
         {paths.map((path) => {
           return (
-            <StyledDropdownMenuItem asChild>
+            <StyledDropdownMenuItem asChild key={`/${route}${path}`}>
               <StyledLinky className="link" to={`/${route}${path}`}>
                 {path}
               </StyledLinky>

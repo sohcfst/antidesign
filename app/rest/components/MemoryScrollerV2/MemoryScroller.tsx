@@ -1,7 +1,7 @@
 import { Parallax, ParallaxProvider } from 'react-scroll-parallax';
 import { Flex } from '../Flex';
 import { NoiseBackground } from '../Noise';
-import { H1 } from '../Typography/Header';
+import { H2 } from '../Typography/Header';
 import {
   ContentImage,
   gradientString,
@@ -19,7 +19,7 @@ const MemoryScroller = () => {
     <>
       <ParallaxProvider>
         <Flex layout={'centerColumn'} css={{ pt: 24, px: 24 }}>
-          <H1>SYSTEM : NOSTALGIA</H1>
+          <H2 css={{ fontSize: 24 }}>SYSTEM : NOSTALGIA</H2>
         </Flex>
         <Flex
           layout={'centerColumn'}

@@ -5,7 +5,6 @@ import { styled, keyframes } from '~/styles/stitches.config';
 import * as DialogPrimitive from '@radix-ui/react-dialog';
 
 export const Image = styled('img', {
-  maxWidth: 1000,
   borderRadius: 4,
   boxShadow: `0 1px 1px hsl(0deg 0% 0% / 0.075),
   0 2px 2px hsl(0deg 0% 0% / 0.075),

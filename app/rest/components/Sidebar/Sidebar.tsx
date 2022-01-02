@@ -26,7 +26,7 @@ export enum Routes {
   index = '/',
 }
 
-const playgroundPaths = ['/', '/system-nostalgia'];
+const playgroundPaths = ['/', '/system-nostalgia', '/meta-inspector'];
 
 const rootPaths = ['/', '/artifacts', '/playground', '/system'];
 
