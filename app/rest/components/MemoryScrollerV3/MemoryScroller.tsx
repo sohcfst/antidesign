@@ -67,8 +67,8 @@ const EtherealStrip = () => (
     css={{
       py: 500,
       width: 440,
-      height: '100%',
-      left: '25%',
+      height: 10000,
+
       position: 'absolute',
       br: 8,
       background: `linear-gradient(175deg, ${gradientString}, ${gradientString}, ${gradientString})`,
@@ -115,43 +115,37 @@ const MemoryScroller = () => {
   return (
     <>
       <H2 css={{ pt: 24 }}>SYSTEM : NOSTALGIA</H2>
-      <StyledScrollArea
+      <Flex
         css={{
-          display: 'flex',
           width: '100%',
-          height: '100%',
+          height: 10000,
           overflowX: 'visible',
+          justifyContent: 'center',
         }}
       >
-        <StyledViewport css={{ overflowX: 'visible' }}>
-          <EtherealStrip />
-          <Flex
-            layout={'centerColumn'}
-            css={{
-              margin: '0 auto',
-              overflowX: 'visible',
-            }}
-          >
-            {config.map((config, i) => {
-              return (
-                <Memory y={config.y} x={config.x} key={`memory-${i}`}>
-                  <Inspector scrollY={config.y} i={i}>
-                    <Image
-                      id={`parallax-image-100`}
-                      width={350}
-                      src={GG_BRIDGE}
-                    />
-                  </Inspector>
-                </Memory>
-              );
-            })}
-          </Flex>
-        </StyledViewport>
-
-        <StyledScrollbar orientation="vertical">
-          <StyledThumb />
-        </StyledScrollbar>
-      </StyledScrollArea>
+        <EtherealStrip />
+        <Flex
+          layout={'centerColumn'}
+          css={{
+            margin: '0 auto',
+            overflowX: 'visible',
+          }}
+        >
+          {config.map((config, i) => {
+            return (
+              <Memory y={config.y} x={config.x} key={`memory-${i}`}>
+                <Inspector scrollY={config.y} i={i}>
+                  <Image
+                    id={`parallax-image-100`}
+                    width={350}
+                    src={GG_BRIDGE}
+                  />
+                </Inspector>
+              </Memory>
+            );
+          })}
+        </Flex>
+      </Flex>
     </>
   );
 };
