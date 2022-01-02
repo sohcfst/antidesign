@@ -19,6 +19,7 @@ export const ButtonContainer = () => {
       }}
     >
       <Button
+        active={'show'}
         onClick={() => {
           if (state.isSystemInitialized) {
             dispatch(setIsSystemInitialized({ isSystemInitialized: false }));

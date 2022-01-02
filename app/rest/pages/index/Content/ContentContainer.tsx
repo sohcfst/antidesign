@@ -52,7 +52,7 @@ export const ContentContainer = () => {
               <Paragraph css={{ fontFamily: 'jetbrains mono', fontSize: 14 }}>
                 {artifact.date}
               </Paragraph>
-              <Paragraph>WIP</Paragraph>
+              <Paragraph>Reasearch in Progress</Paragraph>
             </Flex>
 
             <Flex layout={'rowStart'} spacing={'space8'}>

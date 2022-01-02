@@ -24,4 +24,12 @@ export const Button = styled('button', {
     1.2px 2.4px 2.4px hsl(220deg 100% 100% / 0.5)`,
     transition: 'background-color 100ms ease-in-out',
   },
+
+  variants: {
+    active: {
+      show: {
+        backgroundColor: '$whiteA2',
+      },
+    },
+  },
 });
