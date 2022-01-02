@@ -78,8 +78,8 @@ const EtherealStrip = () => (
   <Flex
     css={{
       py: 500,
-      width: 600,
-      left: '15%',
+      width: 440,
+      left: '25%',
       position: 'absolute',
       height: '100%',
       background: `linear-gradient(175deg, ${gradientString}, ${gradientString}, ${gradientString})`,
@@ -97,14 +97,14 @@ const MemoryScroller = () => {
   return (
     <>
       <H2 css={{ pt: 24 }}>SYSTEM : NOSTALGIA</H2>
-      <StyledScrollArea css={{ width: '100%' }}>
-        <StyledViewport ref={ref} css={{ width: '100%' }}>
+      <StyledScrollArea css={{ display: 'flex', width: '100%' }}>
+        <StyledViewport ref={ref}>
           <EtherealStrip />
           <Flex
             layout={'centerColumn'}
             css={{
               py: 500,
-              // width: 805,
+              margin: '0 auto',
               height: '100%',
             }}
           >

@@ -7,18 +7,12 @@ export default function SystemNostalgiaIndexRoute() {
       layout="centerColumn"
       css={{
         height: '100%',
+        width: '100%',
         br: 8,
         fontWeight: 'bold',
       }}
     >
-      <Flex
-        css={{
-          height: '100%',
-        }}
-        layout={'centerColumn'}
-      >
-        <MemoryScroller />
-      </Flex>
+      <MemoryScroller />
     </Flex>
   );
 }
