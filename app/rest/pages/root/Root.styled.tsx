@@ -3,7 +3,7 @@ import { styled } from '~/styles/stitches.config';
 
 export const SiteFlex = styled(Flex, {
   flexGrow: 1,
-  pt: 105,
+  pt: 65,
 });
 
 export const SidebarFlex = styled(Flex, {
@@ -13,9 +13,9 @@ export const SidebarFlex = styled(Flex, {
 
   minWidth: 300,
   justifyContent: 'center',
-  height: 928,
+  height: 600,
   position: 'sticky',
-  top: 200,
+  top: 160,
 });
 
 export const ContentFlex = styled(Flex, {

@@ -15,13 +15,26 @@ import {
 import { H2 } from '~/rest/components/Typography/Header';
 import { Paragraph } from '~/rest/components/Typography/Text';
 
-import { Image } from '~/rest/components/MemoryScrollerV2/MemoryScrollerV2.style';
-import {
-  StyledScrollArea,
-  StyledScrollbar,
-  StyledThumb,
-  StyledViewport,
-} from './Scrollable.styled';
+export const Image = styled('img', {
+  borderRadius: 4,
+  boxShadow: `0 1px 1px hsl(0deg 0% 0% / 0.075),
+  0 2px 2px hsl(0deg 0% 0% / 0.075),
+  0 4px 4px hsl(0deg 0% 0% / 0.075),
+  0 8px 8px hsl(0deg 0% 0% / 0.075),
+  0 16px 16px hsl(0deg 0% 0% / 0.075)`,
+  zIndex: -1,
+  position: 'relative',
+  cursor: 'pointer',
+
+  '&:hover': {
+    transform: 'scale(1.01)',
+    transition: 'all .1s cubic-bezier(0.1, 0.7, 1.0, 0.1)',
+  },
+
+  '&:active': {
+    transform: 'scale(0.995)',
+  },
+});
 import { GG_BRIDGE } from '~/rest/pages/index/Content/images';
 
 // is there an easy way to figure out what element we're inspecting? that's something i like about styled components
