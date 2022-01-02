@@ -36,7 +36,6 @@ export default function App() {
             <ButtonContainer />
             <Flex
               css={{
-                height: '80vh',
                 br: 8,
                 z: 1,
                 background: 'transparent',

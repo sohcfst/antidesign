@@ -10,6 +10,8 @@ export const StyledToolbar = styled(ToolbarPrimitive.Root, {
   borderRadius: 16,
   gap: 24,
   width: 300,
+  position: 'sticky',
+  alignSelf: 'flex-start',
 
   '&:hover .link': {
     transition: 'opacity 200ms ease-in',
@@ -25,5 +27,3 @@ export const StyledToolbar = styled(ToolbarPrimitive.Root, {
     transition: 'opacity 400ms ease-in-out',
   },
 });
-
-export const Toolbar = StyledToolbar;

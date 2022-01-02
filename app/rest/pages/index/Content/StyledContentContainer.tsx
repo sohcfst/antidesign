@@ -16,6 +16,7 @@ export const HeaderContainer = ({ children }: HeaderContainerProps) => (
       z: 1,
       width: '100%',
       justifyContent: 'center',
+      background: 'transparent',
     }}
   >
     <H1

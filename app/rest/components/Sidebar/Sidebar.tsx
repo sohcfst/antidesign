@@ -1,7 +1,7 @@
 import { Link } from 'remix';
 import { styled } from '~/styles/stitches.config';
 
-import { Toolbar } from './StyledSidebar';
+import { StyledToolbar } from './StyledSidebar';
 import { Paragraph } from '../Typography/Text';
 import { PathSelectorMenu } from '../PathSelectorMenu/PathSelectorMenu';
 
@@ -34,7 +34,7 @@ const artifactPaths = ['/_001', '/_002', '/_003'];
 
 export const LinkTray = () => {
   return (
-    <Toolbar orientation="vertical">
+    <StyledToolbar orientation="vertical">
       <Paragraph css={{ textDecoration: 'underline' }}>
         P A T H S E L E C T O R
       </Paragraph>
@@ -46,6 +46,6 @@ export const LinkTray = () => {
       <PathSelectorMenu route={Routes.playground} paths={playgroundPaths} />
 
       {/* <PathSelectorMenu route={Routes.system} paths={playgroundPaths} /> */}
-    </Toolbar>
+    </StyledToolbar>
   );
 };

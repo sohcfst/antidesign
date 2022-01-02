@@ -2,6 +2,12 @@ import { blackA } from '@radix-ui/colors';
 import * as Dialog from '@radix-ui/react-dialog';
 import { useEffect, useRef, useState } from 'react';
 import { styled, keyframes } from '~/styles/stitches.config';
+import {
+  CommandMenuContainer,
+  HighlighterComponent,
+  ListBox,
+  ListBoxChildren,
+} from './CommandMenu.styled';
 
 const useCommandBar = () => {
   const [isShowing, setIsShowing] = useState(true);
@@ -96,31 +102,6 @@ const useHighlighter = () => {
     highlightStyles,
   };
 };
-
-const HighlighterComponent = styled('div', {
-  background: 'hsl(0 0% 90.9%)',
-  position: 'absolute',
-  top: 40,
-  left: 16,
-  borderRadius: 4,
-  height: 32,
-  transition: '0.15s ease',
-  transitionProperty: 'width, transform, opacity',
-  border: '1px solid white',
-});
-
-const CommandMenuContainer = styled('div', {
-  width: 'fit-content',
-  position: 'relative',
-});
-
-const ListBox = styled('ul', {
-  padding: 36,
-});
-
-const ListBoxChildren = styled('li', {
-  height: 36,
-});
 
 const CommandMenu = () => {
   const { isShowing } = useCommandBar();

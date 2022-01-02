@@ -14,9 +14,8 @@ export const NavContainer = () => (
       background: '$stitchesGrey',
       height: '950px',
       flex: '950px',
-      alignSelf: 'end',
-
-      left: 200,
+      position: 'sticky',
+      // left: 200,
       top: 132,
     }}
   >
