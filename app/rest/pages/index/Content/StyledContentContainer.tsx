@@ -10,12 +10,13 @@ interface HeaderContainerProps {
 export const HeaderContainer = ({ children }: HeaderContainerProps) => (
   <Flex
     id="page-header"
-    layout={'centerColumn'}
+    // layout={'centerColumn'}
     css={{
       height: 98,
       br: 8,
       padding: 16,
       z: 1,
+      width: '100%',
     }}
   >
     <H1

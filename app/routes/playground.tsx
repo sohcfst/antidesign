@@ -7,7 +7,7 @@ import { Flex } from '~/rest/components/Flex';
 import { HeaderContainer } from '~/rest/pages/index/Content/StyledContentContainer';
 
 import { useEffect, useState } from 'react';
-import MemoryScroller from './system/components/memory-scroller';
+import MemoryScroller from '../rest/components/MemoryScrollerV3/memory-scroller';
 
 const useIsSSR = () => {
   // we always start off in "SSR mode", to ensure our initial browser render

@@ -5,7 +5,15 @@ import { Children, useEffect, useRef, useState } from 'react';
 import { Flex } from '~/rest/components/Flex';
 import * as ScrollAreaPrimitive from '@radix-ui/react-scroll-area';
 import { blackA, green, mauve, purple, sky, whiteA } from '@radix-ui/colors';
-import { Parallax, ParallaxProvider } from 'react-scroll-parallax';
+import {
+  motion,
+  MotionValue,
+  useElementScroll,
+  useTransform,
+} from 'framer-motion';
+import { H1 } from '~/rest/components/Typography/Header';
+import { Paragraph } from '~/rest/components/Typography/Text';
+
 import {
   ContentImage,
   Image,
@@ -44,41 +52,6 @@ const Img = styled('img', {
   left: 0,
 });
 
-interface MemoryProps {
-  src: string;
-  scrollOffset?: number;
-  initialTopOffset: number;
-  scale: number;
-  left: number;
-}
-
-const Memory = ({
-  src,
-  scrollOffset,
-  initialTopOffset,
-  scale,
-  left,
-}: MemoryProps) => {
-  const translateUtil = () => {
-    return `translateY(${
-      scrollOffset ? scrollOffset * -scale + initialTopOffset : initialTopOffset
-    }px)`;
-  };
-
-  return (
-    <Img
-      src={src}
-      width={400}
-      css={{
-        position: 'absolute',
-        borderRadius: 8,
-        left,
-        transform: translateUtil(),
-      }}
-    />
-  );
-};
-
 const StyledViewport = styled(ScrollAreaPrimitive.Viewport, {
   width: '100%',
   height: '100%',
@@ -103,16 +76,7 @@ const StyledScrollbar = styled(ScrollAreaPrimitive.Scrollbar, {
     height: SCROLLBAR_SIZE,
   },
 });
-import * as DialogPrimitive from '@radix-ui/react-dialog';
-import {
-  motion,
-  MotionValue,
-  useElementScroll,
-  useTransform,
-  useViewportScroll,
-} from 'framer-motion';
-import { H1 } from '~/rest/components/Typography/Header';
-import { Paragraph } from '~/rest/components/Typography/Text';
+
 const StyledThumb = styled(ScrollAreaPrimitive.Thumb, {
   flex: 1,
   background: mauve.mauve10,
@@ -138,7 +102,7 @@ interface ParallaxProps {
   children: React.ReactNode;
 }
 
-const Parallax = ({ children, y, x }: ParallaxProps) => {
+const Memory = ({ children, y, x }: ParallaxProps) => {
   return (
     <motion.div
       style={{
@@ -150,36 +114,27 @@ const Parallax = ({ children, y, x }: ParallaxProps) => {
     </motion.div>
   );
 };
+
 const getConfig = (scrollY: MotionValue<number>) => {
   return [
-    useTransform(scrollY, [0, 300], [100, -1000]),
-    useTransform(scrollY, [0, 400], [200, -600]),
-    useTransform(scrollY, [0, 500], [-100, -700]),
-    useTransform(scrollY, [0, 600], [300, -900]),
-    useTransform(scrollY, [0, 700], [0, -300]),
-    useTransform(scrollY, [0, 800], [100, -700]),
-    useTransform(scrollY, [0, 900], [200, -400]),
-    useTransform(scrollY, [0, 1300], [-100, -100]),
-    useTransform(scrollY, [0, 1400], [300, -800]),
-    useTransform(scrollY, [0, 1500], [0, -2000]),
+    { y: useTransform(scrollY, [1, 200], [1, -300]), x: 0 },
+    // { y: useTransform(scrollY, [100, 100], [1000, 1]), x: 0 },
+    // { y: useTransform(scrollY, [0, 300], [300, -1000]), x: 300 },
+    // { y: useTransform(scrollY, [0, 400], [300, -700]), x: -300 },
+    // { y: useTransform(scrollY, [0, 500], [100, -300]), x: 0 },
+    // { y: useTransform(scrollY, [0, 1100], [100, -1000]), x: 300 },
+    // { y: useTransform(scrollY, [0, 1200], [100, -1000]), x: -300 },
+    // { y: useTransform(scrollY, [0, 1300], [100, -1000]), x: 200 },
+    // { y: useTransform(scrollY, [0, 1400], [100, -1000]), x: -300 },
+    // { y: useTransform(scrollY, [0, 500], [100, -1000]), x: 350 },
   ];
 };
 
 const MemoryScroller = () => {
   const ref = useRef() as React.MutableRefObject<HTMLDivElement>;
   const { scrollY } = useElementScroll(ref);
-  const config = [
-    { y: useTransform(scrollY, [0, 300], [200, -1000]), x: 100 },
-    { y: useTransform(scrollY, [0, 400], [300, -600]), x: -200 },
-    { y: useTransform(scrollY, [0, 300], [300, -1000]), x: 300 },
-    { y: useTransform(scrollY, [0, 400], [300, -700]), x: -300 },
-    { y: useTransform(scrollY, [0, 500], [100, -300]), x: 0 },
-    { y: useTransform(scrollY, [0, 1100], [100, -1000]), x: 300 },
-    { y: useTransform(scrollY, [0, 1200], [100, -1000]), x: -300 },
-    { y: useTransform(scrollY, [0, 1300], [100, -1000]), x: 200 },
-    { y: useTransform(scrollY, [0, 1400], [100, -1000]), x: -300 },
-    { y: useTransform(scrollY, [0, 500], [100, -1000]), x: 350 },
-  ];
+
+  const config = getConfig(scrollY);
 
   const gradientString = `${sky.sky5}, white`;
 
@@ -198,6 +153,7 @@ const MemoryScroller = () => {
           <Flex
             layout={'centerColumn'}
             css={{
+              py: 500,
               width: '100%',
               height: '100%',
               background: `linear-gradient(175deg, ${gradientString}, ${gradientString}, ${gradientString})`,
@@ -205,17 +161,25 @@ const MemoryScroller = () => {
           >
             {config.map((config, i) => {
               return (
-                <Parallax y={config.y} x={config.x}>
+                <Memory y={config.y} x={config.x}>
                   <Paragraph css={{ color: 'black' }}>image {i}</Paragraph>
-
+                  <Paragraph css={{ color: 'black' }}>
+                    motion value: {config.y.getVelocity()}
+                  </Paragraph>
+                  <Paragraph css={{ color: 'black' }}>
+                    scrollY: {scrollY.get()}
+                  </Paragraph>
                   <Image
                     id={`parallax-image-100`}
                     width={400}
                     src={GG_BRIDGE}
                   />
-                </Parallax>
+                </Memory>
               );
             })}
+            <Memory y={config.y} x={config.x}>
+              <Image id={`parallax-image-100`} height={1000} src={GG_BRIDGE} />
+            </Memory>
           </Flex>
         </StyledViewport>
 
