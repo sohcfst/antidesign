@@ -1,7 +1,7 @@
 import { Flex } from '~/rest/components/Flex';
 import MemoryScroller from '~/rest/components/MemoryScrollerV3/MemoryScroller';
 
-export default function SystemNostalgiaIndexRoute() {
+export default function MetaInspectorIndexRoute() {
   return (
     <Flex
       layout="centerColumn"
@@ -10,9 +10,10 @@ export default function SystemNostalgiaIndexRoute() {
         width: '100%',
         br: 8,
         fontWeight: 'bold',
+        py: '50%',
       }}
     >
-      <MemoryScroller />
+      <div>Research in Progress</div>
     </Flex>
   );
 }

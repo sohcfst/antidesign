@@ -34,6 +34,7 @@ export default function ArtifactsIndexRoute() {
         <HeaderContainer>// A R T I F A C T S</HeaderContainer>
         <ButtonContainer />
         <ContentContainer />
+        <Outlet />
       </Flex>
     </GlobalProvder>
   );

@@ -45,7 +45,7 @@ export const LinkTray = () => {
 
       <PathSelectorMenu route={Routes.playground} paths={playgroundPaths} />
 
-      <PathSelectorMenu route={Routes.system} paths={playgroundPaths} />
+      {/* <PathSelectorMenu route={Routes.system} paths={playgroundPaths} /> */}
     </Toolbar>
   );
 };
