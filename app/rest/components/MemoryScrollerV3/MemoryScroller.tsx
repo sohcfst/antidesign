@@ -81,7 +81,7 @@ const EtherealStrip = () => (
       width: 440,
       left: '25%',
       position: 'absolute',
-      height: '100%',
+
       background: `linear-gradient(175deg, ${gradientString}, ${gradientString}, ${gradientString})`,
       z: -1,
     }}
@@ -105,7 +105,6 @@ const MemoryScroller = () => {
             css={{
               py: 250,
               margin: '0 auto',
-              height: '100%',
             }}
           >
             {config.map((config, i) => {

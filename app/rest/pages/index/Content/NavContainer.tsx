@@ -5,18 +5,12 @@ export const NavContainer = () => (
   <Flex
     id="page-nav"
     css={{
-      backgroundColor: '$stitchesGrey',
-      width: 214,
       border: '1px solid white',
+      width: 214,
       br: 8,
+      backgroundColor: '$stitchesGrey',
       boxShadow: `1px 2px 2px hsl(220deg 100% 100% / 0.5),
-            2px 4px 4px hsl(220deg 100% 100% / 0.5)`,
-      background: '$stitchesGrey',
-      height: '950px',
-      flex: '950px',
-      position: 'sticky',
-      // left: 200,
-      top: 132,
+      2px 4px 4px hsl(220deg 100% 100% / 0.5)`,
     }}
   >
     <LinkTray />
