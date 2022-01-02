@@ -6,7 +6,6 @@ import { StyledPill } from '~/rest/components/Pills';
 
 import { Paragraph } from '~/rest/components/Typography/Text';
 
-import { styled } from '~/styles/stitches.config';
 import { sequence1, sequence2 } from '../animations/slideSequence';
 
 import { artifacts } from '../artifacts.constants';
@@ -34,7 +33,7 @@ export const ContentContainer = () => {
 
   return (
     <StyledContentContainer layout={'centerColumn'}>
-      {artifacts.slice(0, 5).map((artifact, i) => {
+      {artifacts.map((artifact, i) => {
         const id = `fuckshit-${i}`;
 
         return (
@@ -43,47 +42,19 @@ export const ContentContainer = () => {
             className="card"
             key={id}
             onClick={() => onCardClick(id)}
+            display={artifact.isPreviewMode && 'preview'}
           >
             <Flex layout={'startColumn'}>
               <Paragraph css={{ fontSize: 18 }}>{artifact.title}</Paragraph>
               <Paragraph css={{ fontFamily: 'jetbrains mono', fontSize: 14 }}>
-                {artifact.date}
+                published: {artifact.date}
               </Paragraph>
-              <Paragraph css={{ fontWeight: 'normal' }}>
-                {'- .. ['} research in progress {'] .. -'}
-              </Paragraph>
-            </Flex>
 
-            <Flex layout={'rowStart'} spacing={'space8'}>
-              {artifact.labels.map((label) => {
-                return (
-                  <StyledPill key={id + label} pillType={label}>
-                    {label}
-                  </StyledPill>
-                );
-              })}
-            </Flex>
-          </Card>
-        );
-      })}
-      {artifacts.slice(0, 5).map((artifact, i) => {
-        const id = `fuckshit-${i}`;
-
-        return (
-          <Card
-            id={id}
-            className="card"
-            key={id}
-            onClick={() => onCardClick(id)}
-          >
-            <Flex layout={'startColumn'}>
-              <Paragraph css={{ fontSize: 18 }}>{artifact.title}</Paragraph>
-              <Paragraph css={{ fontFamily: 'jetbrains mono', fontSize: 14 }}>
-                {artifact.date}
-              </Paragraph>
-              <Paragraph css={{ fontWeight: 'normal' }}>
-                {'- .. ['} research in progress {'] .. -'}
-              </Paragraph>
+              {artifact.isPreviewMode && (
+                <Paragraph css={{ fontWeight: 'normal', py: 16 }}>
+                  {'- .. ['} research in progress {'] .. -'}
+                </Paragraph>
+              )}
             </Flex>
 
             <Flex layout={'rowStart'} spacing={'space8'}>

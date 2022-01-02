@@ -34,8 +34,8 @@ export const HeaderContainer = ({ children }: HeaderContainerProps) => (
 );
 
 export const Card = styled(Flex, {
+  height: 270,
   background: '$stitchesGrey',
-  height: '100%',
   border: '1px solid white',
   br: 8,
   width: '864px',
@@ -52,6 +52,16 @@ export const Card = styled(Flex, {
     },
   },
   justifyContent: 'space-between',
+
+  variants: {
+    display: {
+      preview: {
+        color: '$whiteA9',
+        border: `1px solid $whiteA9`,
+        opacity: 0.5,
+      },
+    },
+  },
 });
 
 export const StyledContentContainer = styled(Flex, {

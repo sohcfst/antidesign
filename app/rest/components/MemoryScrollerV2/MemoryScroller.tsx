@@ -18,7 +18,7 @@ const MemoryScroller = () => {
   return (
     <>
       <ParallaxProvider>
-        <Flex layout={'centerColumn'} css={{ pt: 24, px: 24 }}>
+        <Flex layout={'centerColumn'} css={{ px: 24 }}>
           <H2 css={{ fontSize: 24 }}>SYSTEM : NOSTALGIA</H2>
         </Flex>
         <Flex

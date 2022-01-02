@@ -4,12 +4,13 @@ import { Children, useEffect, useRef, useState } from 'react';
 
 import { Flex } from '~/rest/components/Flex';
 
-import { sky } from '@radix-ui/colors';
+import { blackA, sky } from '@radix-ui/colors';
 import {
   motion,
   MotionValue,
   useElementScroll,
   useTransform,
+  useViewportScroll,
 } from 'framer-motion';
 import { H2 } from '~/rest/components/Typography/Header';
 import { Paragraph } from '~/rest/components/Typography/Text';
@@ -46,16 +47,16 @@ const Memory = ({ children, y, x }: ParallaxProps) => {
 
 const getConfig = (scrollY: MotionValue<number>) => {
   return [
-    { y: useTransform(scrollY, [1, 200], [1, -300]), x: 0 },
-    { y: useTransform(scrollY, [100, 100], [1000, 1]), x: 0 },
-    { y: useTransform(scrollY, [0, 300], [300, -1000]), x: 300 },
-    { y: useTransform(scrollY, [0, 400], [300, -700]), x: -300 },
+    { y: useTransform(scrollY, [0, 200], [3, -100]), x: 0 },
+    { y: useTransform(scrollY, [100, 100], [1000, 1]), x: -200 },
+    { y: useTransform(scrollY, [0, 300], [300, -800]), x: 300 },
+    { y: useTransform(scrollY, [0, 400], [300, -700]), x: -250 },
     { y: useTransform(scrollY, [0, 500], [100, -300]), x: 0 },
-    { y: useTransform(scrollY, [0, 1100], [100, -1000]), x: 300 },
+    { y: useTransform(scrollY, [0, 1100], [100, -1000]), x: 250 },
     { y: useTransform(scrollY, [0, 1200], [100, -1000]), x: -300 },
     { y: useTransform(scrollY, [0, 1300], [100, -1000]), x: 200 },
     { y: useTransform(scrollY, [0, 1400], [100, -1000]), x: -300 },
-    { y: useTransform(scrollY, [0, 500], [100, -1000]), x: 350 },
+    { y: useTransform(scrollY, [0, 1500], [100, -1000]), x: 250 },
   ];
 };
 
@@ -66,50 +67,81 @@ const EtherealStrip = () => (
     css={{
       py: 500,
       width: 440,
-      height: 10000,
+      height: '100%',
       left: '25%',
       position: 'absolute',
       br: 8,
       background: `linear-gradient(175deg, ${gradientString}, ${gradientString}, ${gradientString})`,
       z: -1,
+      boxShadow: `0 2px 10px ${blackA.blackA7}`,
     }}
   />
 );
 
-const MemoryScroller = () => {
-  const ref = useRef() as React.MutableRefObject<HTMLDivElement>;
-  const { scrollY } = useElementScroll(ref);
+interface InspectorProps {
+  children: React.ReactNode;
+  scrollY: MotionValue;
+  i: number;
+}
 
+const Inspector = ({ children, scrollY, i }: InspectorProps) => {
+  const ref = useRef() as React.MutableRefObject<HTMLDivElement>;
+  const [position, setPosition] = useState(0);
+
+  scrollY.onChange((y) => {
+    setPosition(Math.round(100 * y) / 100);
+  });
+
+  return (
+    <>
+      <Paragraph css={{ color: 'red' }}>LABEL: image {i}</Paragraph>
+      <Paragraph css={{ color: 'red' }}>POSITION: {position}px</Paragraph>
+
+      <Flex
+        ref={ref}
+        layout={'startColumn'}
+        css={{ p: 16, border: '1px solid red' }}
+      >
+        <>{children}</>
+      </Flex>
+    </>
+  );
+};
+
+const MemoryScroller = () => {
+  const { scrollY } = useViewportScroll();
   const config = getConfig(scrollY);
 
   return (
     <>
       <H2 css={{ pt: 24 }}>SYSTEM : NOSTALGIA</H2>
-      <StyledScrollArea css={{ display: 'flex', width: '100%', height: 10000 }}>
-        <StyledViewport ref={ref}>
+      <StyledScrollArea
+        css={{
+          display: 'flex',
+          width: '100%',
+          height: '100%',
+          overflowX: 'visible',
+        }}
+      >
+        <StyledViewport css={{ overflowX: 'visible' }}>
           <EtherealStrip />
           <Flex
             layout={'centerColumn'}
             css={{
-              py: 250,
               margin: '0 auto',
+              overflowX: 'visible',
             }}
           >
             {config.map((config, i) => {
               return (
                 <Memory y={config.y} x={config.x} key={`memory-${i}`}>
-                  <Paragraph css={{ color: 'black' }}>image {i}</Paragraph>
-                  <Paragraph css={{ color: 'black' }}>
-                    motion value: {config.y.getVelocity()}
-                  </Paragraph>
-                  <Paragraph css={{ color: 'black' }}>
-                    scrollY: {scrollY.get()}
-                  </Paragraph>
-                  <Image
-                    id={`parallax-image-100`}
-                    width={350}
-                    src={GG_BRIDGE}
-                  />
+                  <Inspector scrollY={config.y} i={i}>
+                    <Image
+                      id={`parallax-image-100`}
+                      width={350}
+                      src={GG_BRIDGE}
+                    />
+                  </Inspector>
                 </Memory>
               );
             })}

@@ -10,8 +10,8 @@ export const SidebarFlex = styled(Flex, {
   br: 8,
   z: 1,
   background: 'transparent',
-  // pt: 95,
-  width: 300,
+
+  minWidth: 300,
   justifyContent: 'center',
   height: 928,
   position: 'sticky',
