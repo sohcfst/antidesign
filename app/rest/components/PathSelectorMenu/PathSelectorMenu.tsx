@@ -1,6 +1,6 @@
 import * as DropdownMenu from '@radix-ui/react-dropdown-menu';
-import { animate } from 'motion';
-import { useEffect, useState } from 'react';
+
+import { useEffect } from 'react';
 import { useKeyPress } from '~/rest/hooks/useKeyPress';
 
 import { Routes, StyledLinky } from '../Sidebar/Sidebar';
