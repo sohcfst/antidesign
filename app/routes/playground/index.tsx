@@ -4,21 +4,20 @@ import { StyledContentContainer } from '~/rest/pages/index/Content/StyledContent
 
 export default function PlaygroundRoute() {
   return (
-    <StyledContentContainer css={{ border: '1px solid white' }}>
-      {/* <Flex
-        layout="centerColumn"
-        css={{
-          br: 8,
-          py: '33%',
-          border: '1px solid white',
-          width: 346,
-          background: 'white',
-        }}
-      >
-        <H2 css={{ position: 'fixed' }}>
-          {'- .. ['} research in progress {'] .. -'}
-        </H2>
-      </Flex> */}
-    </StyledContentContainer>
+    <Flex
+      layout="centerColumn"
+      css={{
+        br: 8,
+        py: '33%',
+        border: '1px solid white',
+        width: 346,
+        background: 'white',
+        minHeight: '200vh',
+      }}
+    >
+      <H2 css={{ position: 'fixed' }}>
+        {'- .. ['} research in progress {'] .. -'}
+      </H2>
+    </Flex>
   );
 }

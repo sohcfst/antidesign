@@ -10,6 +10,7 @@ export const PlaygroundHeader = () => (
       cursor: 'pointer',
       width: 768,
       textAlign: 'center',
+      pb: 24,
     }}
   >
     P L A Y G R O U N D

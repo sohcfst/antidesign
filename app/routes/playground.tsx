@@ -5,7 +5,7 @@ import { PlaygroundHeader } from '~/rest/pages/playground/PlaygroundHeader';
 
 export default function PlaygroundRoute() {
   return (
-    <Section css={{ flexDirection: 'column', p: 24 }}>
+    <Section css={{ flexDirection: 'column', p: 24, alignItems: 'center' }}>
       <PlaygroundHeader />
       <Outlet />
     </Section>

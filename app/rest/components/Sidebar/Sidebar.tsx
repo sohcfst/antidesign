@@ -26,11 +26,11 @@ export enum Routes {
   index = '/',
 }
 
-const playgroundPaths = ['/', '/system-nostalgia', '/meta-inspector'];
-
 const rootPaths = ['/', '/artifacts', '/playground', '/system'];
 
 const artifactPaths = ['/_001', '/_002', '/_003'];
+
+const playgroundPaths = ['/', '/system-nostalgia', '/meta-inspector'];
 
 interface LinkTrayProps {
   title: string;
