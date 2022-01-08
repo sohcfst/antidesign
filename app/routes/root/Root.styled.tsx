@@ -12,7 +12,7 @@ export const SidebarFlex = styled(Flex, {
   background: 'transparent',
 
   minWidth: 300,
-  justifyContent: 'center',
+  justifyContent: 'flex-end',
   height: 600,
   position: 'sticky',
   top: 160,

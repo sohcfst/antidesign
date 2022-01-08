@@ -1,5 +1,5 @@
 import { Flex } from '~/rest/components/Flex';
-import MemoryScroller from '~/rest/components/MemoryScrollerV3/MemoryScroller';
+
 import { H2 } from '~/rest/components/Typography/Header';
 
 export default function MetaInspectorIndexRoute() {

@@ -10,15 +10,16 @@ import { sequence1, sequence2 } from '../animations/slideSequence';
 
 import { artifacts } from '../artifacts.constants';
 import { setArtifact, useGlobalContext } from '../GlobalProvider';
-import { Card, StyledContentContainer } from './StyledContentContainer';
+import { Card } from './Card';
+import { StyledContentContainer } from './StyledContentContainer';
 
 export const ContentContainer = () => {
-  const { state, dispatch } = useGlobalContext();
+  // const { state, dispatch } = useGlobalContext();
 
   const [systemEngaged, setSystemEngaged] = useState(false);
 
   const onCardClick = (id: string) => {
-    dispatch(setArtifact({ currentArtifact: id }));
+    // dispatch(setArtifact({ currentArtifact: id }));
 
     if (systemEngaged) {
       setSystemEngaged(false);
@@ -29,7 +30,7 @@ export const ContentContainer = () => {
     }
   };
 
-  useEffect(() => {}, [state.currentArtifact]);
+  // useEffect(() => {}, [state.currentArtifact]);
 
   return (
     <StyledContentContainer layout={'centerColumn'}>

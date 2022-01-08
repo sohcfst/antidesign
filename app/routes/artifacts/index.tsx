@@ -3,10 +3,11 @@ import { Outlet } from 'remix';
 import { useLoaderData, LoaderFunction } from 'remix';
 import { db } from '~/database/db.server';
 import { Flex } from '~/rest/components/Flex';
-import { ButtonContainer } from '~/rest/pages/index/ButtonContainer';
-import { ContentContainer } from '~/rest/pages/index/Content/ContentContainer';
-import { HeaderContainer } from '~/rest/pages/index/Content/StyledContentContainer';
-import { GlobalProvder } from '~/rest/pages/index/GlobalProvider';
+import { ButtonContainer } from '~/routes/index/ButtonContainer';
+import { ContentContainer } from '~/routes/index/Content/ContentContainer';
+import { HeaderContainer } from '~/routes/index/Content/HeaderContainer';
+
+import { GlobalProvder } from '~/routes/index/GlobalProvider';
 
 export interface Image {
   url: string;

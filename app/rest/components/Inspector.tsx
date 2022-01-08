@@ -1,5 +1,5 @@
 import { MotionValue } from 'framer-motion';
-import { useRef, useState } from 'react';
+import { useState } from 'react';
 import { Flex } from './Flex';
 import { InlineText, Paragraph } from './Typography/Text';
 
@@ -33,11 +33,11 @@ export const Inspector = ({
         LABEL : <InlineText>image{i}.jpg</InlineText>
       </Paragraph>
       <Paragraph css={{ color: 'red' }}>
-        ELEMENT POSITION : <InlineText>{position}px</InlineText>
+        RELATIVE POS : <InlineText>{position}px</InlineText>
       </Paragraph>
 
       <Paragraph css={{ color: 'red' }}>
-        CONTAINER POSITION : <InlineText>{containerPosition}px</InlineText>
+        CONTAINER POS : <InlineText>{containerPosition}px</InlineText>
       </Paragraph>
 
       <Flex layout={'startColumn'} css={{ p: 16, border: '1px solid red' }}>
