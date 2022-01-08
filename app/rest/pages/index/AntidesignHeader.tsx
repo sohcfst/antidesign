@@ -1,9 +1,6 @@
-import { Outlet } from 'remix';
-
-import { Section } from '~/rest/components/Section';
 import { H1 } from '~/rest/components/Typography/Header';
 
-const PlaygroundHeader = () => (
+export const AntidesignHeader = () => (
   <H1
     css={{
       fontSize: 48,
@@ -18,14 +15,3 @@ const PlaygroundHeader = () => (
     A N T I D E S I G N
   </H1>
 );
-
-export default function PlaygroundRoute() {
-  return (
-    <>
-      <Section css={{ flexDirection: 'column', p: 24 }}>
-        <PlaygroundHeader />
-        <Outlet />
-      </Section>
-    </>
-  );
-}
