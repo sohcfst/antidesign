@@ -8,7 +8,7 @@ export const StyledContentContainer = styled(Flex, {
   width: 768,
   opacity: 1,
   br: 8,
-  px: 24,
+  pt: 16,
   fontWeight: 'bold',
   gap: 24,
   background: 'transparent',
