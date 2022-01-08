@@ -40,9 +40,6 @@ export default function App() {
             <Flex
               css={{
                 flexGrow: 1,
-                position: 'sticky',
-                top: 176,
-                alignSelf: 'flex-start',
               }}
             >
               <SidebarFlex id="pathselector-nav">
