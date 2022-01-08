@@ -1,7 +1,7 @@
 import { Flex } from '~/rest/components/Flex';
 
 import { useViewportScroll } from 'framer-motion';
-import { H2 } from '~/rest/components/Typography/Header';
+import { H2 } from '~/rest/components/Typography/Header/Header';
 
 import { GG_BRIDGE } from '~/rest/pages/index/Content/images';
 import { Inspector } from '../Inspector';

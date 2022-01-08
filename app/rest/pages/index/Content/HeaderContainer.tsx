@@ -1,5 +1,5 @@
 import { Flex } from '~/rest/components/Flex';
-import { H1 } from '~/rest/components/Typography/Header';
+import { H1 } from '~/rest/components/Typography/Header/Header';
 
 interface HeaderContainerProps {
   children: React.ReactNode;

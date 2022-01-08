@@ -1,5 +1,4 @@
 import { Section } from '~/rest/components/Section';
-import { H1 } from '~/rest/components/Typography/Header';
 import { AntidesignHeader } from '~/rest/pages/index/AntidesignHeader';
 
 import { ContentContainer } from '~/rest/pages/index/Content/ContentContainer';

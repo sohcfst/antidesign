@@ -1,6 +1,6 @@
 import { H1 } from '~/rest/components/Typography/Header/Header';
 
-export const AntidesignHeader = () => (
+export const PlaygroundHeader = () => (
   <H1
     css={{
       fontSize: 48,
@@ -12,6 +12,6 @@ export const AntidesignHeader = () => (
       textAlign: 'center',
     }}
   >
-    A N T I D E S I G N
+    P L A Y G R O U N D
   </H1>
 );

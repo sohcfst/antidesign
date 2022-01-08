@@ -3,7 +3,7 @@ import { Flex } from '~/rest/components/Flex';
 import { styled } from '~/styles/stitches.config';
 
 export const StyledContentContainer = styled(Flex, {
-  height: '100%',
+  height: 500,
   maxWidth: 1192,
   width: 768,
   opacity: 1,

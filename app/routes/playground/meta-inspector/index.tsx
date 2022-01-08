@@ -1,6 +1,6 @@
 import { Flex } from '~/rest/components/Flex';
 
-import { H2 } from '~/rest/components/Typography/Header';
+import { H2 } from '~/rest/components/Typography/Header/Header';
 
 export default function MetaInspectorIndexRoute() {
   return (

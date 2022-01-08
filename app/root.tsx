@@ -11,6 +11,7 @@ import { ButtonContainer } from '~/rest/pages/index/ButtonContainer';
 import { GlobalProvder } from '~/rest/pages/index/GlobalProvider';
 import { NavContainer } from './rest/pages/index/Content/NavContainer';
 import { SidebarFlex, Root } from './rest/pages/root/Root.styled';
+import { Flex } from './rest/components/Flex';
 
 import { Main } from './rest/components/Main';
 
@@ -35,10 +36,19 @@ export default function App() {
           <ThreeNoiseBackground />
           <ButtonContainer />
 
-          <Root>
-            <SidebarFlex id="pathselector-nav">
-              <NavContainer title={'P A T H S E L E C T O R'} />
-            </SidebarFlex>
+          <Root id="root">
+            <Flex
+              css={{
+                flexGrow: 1,
+                position: 'sticky',
+                top: 176,
+                alignSelf: 'flex-start',
+              }}
+            >
+              <SidebarFlex id="pathselector-nav">
+                <NavContainer title={'P A T H S E L E C T O R'} />
+              </SidebarFlex>
+            </Flex>
 
             <Main>
               <Outlet />
