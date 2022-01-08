@@ -15,7 +15,7 @@ export const SidebarFlex = styled(Flex, {
   justifyContent: 'flex-end',
   height: 600,
   position: 'sticky',
-  top: 160,
+  top: 176,
 });
 
 export const ContentFlex = styled(Flex, {

@@ -1,4 +1,4 @@
-import { Flex } from '~/rest/components/Flex';
+import { Nav } from '~/rest/components/Nav';
 import { LinkTray } from '~/rest/components/Sidebar/Sidebar';
 
 interface NavContainerProps {
@@ -6,7 +6,7 @@ interface NavContainerProps {
 }
 
 export const NavContainer = ({ title }: NavContainerProps) => (
-  <Flex
+  <Nav
     css={{
       border: '1px solid white',
       width: 'fit-content',
@@ -17,5 +17,5 @@ export const NavContainer = ({ title }: NavContainerProps) => (
     }}
   >
     <LinkTray title={title} />
-  </Flex>
+  </Nav>
 );

@@ -10,11 +10,9 @@ import { ButtonContainer } from '~/rest/pages/index/ButtonContainer';
 
 import { GlobalProvder } from '~/rest/pages/index/GlobalProvider';
 import { NavContainer } from './rest/pages/index/Content/NavContainer';
-import { ContentFlex, SidebarFlex, Root } from './rest/pages/root/Root.styled';
-import { Section } from './rest/components/Section';
+import { SidebarFlex, Root } from './rest/pages/root/Root.styled';
+
 import { Main } from './rest/components/Main';
-import { Nav } from './rest/components/Nav';
-import { LinkTray } from './rest/components/Sidebar/Sidebar';
 
 export const meta: MetaFunction = () => {
   return { title: 'antidesign' };
