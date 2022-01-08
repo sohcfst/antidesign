@@ -33,7 +33,7 @@ export const ContentContainer = () => {
   // useEffect(() => {}, [state.currentArtifact]);
 
   return (
-    <StyledContentContainer layout={'centerColumn'}>
+    <StyledContentContainer layout={'startColumn'}>
       {artifacts.map((artifact, i) => {
         const id = `fuckshit-${i}`;
 

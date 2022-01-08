@@ -1,7 +1,7 @@
 import type { MetaFunction } from 'remix';
 import { getCssText, globalStyles, styled } from './styles/stitches.config';
-import { Head } from './routes/root/Head';
-import { AllThatBullShit } from './routes/root/AllThatBullshit';
+import { Head } from './rest/pages/root/Head';
+import { AllThatBullShit } from './rest/pages/root/AllThatBullshit';
 
 import { Outlet } from 'remix';
 
@@ -10,7 +10,11 @@ import { ButtonContainer } from '~/rest/pages/index/ButtonContainer';
 
 import { GlobalProvder } from '~/rest/pages/index/GlobalProvider';
 import { NavContainer } from './rest/pages/index/Content/NavContainer';
-import { ContentFlex, SidebarFlex, SiteFlex } from './routes/root/Root.styled';
+import { ContentFlex, SidebarFlex, Root } from './rest/pages/root/Root.styled';
+import { Section } from './rest/components/Section';
+import { Main } from './rest/components/Main';
+import { Nav } from './rest/components/Nav';
+import { LinkTray } from './rest/components/Sidebar/Sidebar';
 
 export const meta: MetaFunction = () => {
   return { title: 'antidesign' };
@@ -33,19 +37,15 @@ export default function App() {
           <ThreeNoiseBackground />
           <ButtonContainer />
 
-          <SiteFlex role="navigation">
+          <Root>
             <SidebarFlex id="pathselector-nav">
               <NavContainer title={'P A T H S E L E C T O R'} />
             </SidebarFlex>
 
-            <ContentFlex layout={'centerColumn'} role="main">
+            <Main>
               <Outlet />
-            </ContentFlex>
-
-            {/* <SidebarFlex id="controller-nav">
-              <NavContainer title={'S Y S C O N T O L L E R'} />
-            </SidebarFlex> */}
-          </SiteFlex>
+            </Main>
+          </Root>
         </GlobalProvder>
         <AllThatBullShit />
       </body>

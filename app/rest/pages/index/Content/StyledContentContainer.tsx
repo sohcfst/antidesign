@@ -4,10 +4,10 @@ import { styled } from '~/styles/stitches.config';
 
 export const StyledContentContainer = styled(Flex, {
   height: '100%',
-  width: '100%',
+  maxWidth: 1192,
+  width: 768,
   opacity: 1,
   br: 8,
-
   px: 24,
   fontWeight: 'bold',
   gap: 24,

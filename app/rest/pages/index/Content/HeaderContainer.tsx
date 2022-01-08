@@ -11,10 +11,10 @@ export const HeaderContainer = ({ children }: HeaderContainerProps) => (
     css={{
       height: 98,
       br: 8,
-      padding: 16,
+      padding: 24,
       z: 1,
       width: '100%',
-      justifyContent: 'center',
+      justifyContent: 'start',
       background: 'transparent',
     }}
   >

@@ -20,6 +20,7 @@ export const Card = styled(Flex, {
     },
   },
   justifyContent: 'space-between',
+  width: '100%',
 
   variants: {
     display: {
