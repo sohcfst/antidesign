@@ -8,16 +8,15 @@ export default function MetaInspectorIndexRoute() {
       layout="centerColumn"
       css={{
         br: 8,
-        fontWeight: 'bold',
-        py: '50%',
+        py: '33%',
         border: '1px solid white',
-        width: 246,
-        height: '100%',
+        width: 346,
         background: 'white',
+        minHeight: '200vh',
       }}
     >
-      <H2>
-        {'- .. [ -'} research in progress {'- ] .. -'}
+      <H2 css={{ position: 'fixed' }}>
+        {'- .. ['} research in progress {'] .. -'}
       </H2>
     </Flex>
   );

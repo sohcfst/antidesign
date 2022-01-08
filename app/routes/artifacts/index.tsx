@@ -3,11 +3,7 @@ import { Outlet } from 'remix';
 import { useLoaderData, LoaderFunction } from 'remix';
 import { db } from '~/database/db.server';
 import { Flex } from '~/rest/components/Flex';
-import { ButtonContainer } from '~/rest/pages/index/ButtonContainer';
-import { ContentContainer } from '~/rest/pages/index/Content/ContentContainer';
-import { HeaderContainer } from '~/rest/pages/index/Content/HeaderContainer';
-
-import { GlobalProvder } from '~/rest/pages/index/GlobalProvider';
+import { H2 } from '~/rest/components/Typography/Header/Header';
 
 export interface Image {
   url: string;
@@ -30,13 +26,20 @@ export default function ArtifactsIndexRoute() {
   const { images } = useLoaderData();
 
   return (
-    <GlobalProvder>
-      <Flex layout={'centerColumn'}>
-        <HeaderContainer>// A R T I F A C T S</HeaderContainer>
-        <ButtonContainer />
-        <ContentContainer />
-        <Outlet />
-      </Flex>
-    </GlobalProvder>
+    <Flex
+      layout="centerColumn"
+      css={{
+        br: 8,
+        py: '33%',
+        border: '1px solid white',
+        width: 346,
+        background: 'white',
+        minHeight: '200vh',
+      }}
+    >
+      <H2 css={{ position: 'fixed' }}>
+        {'- .. ['} research in progress {'] .. -'}
+      </H2>
+    </Flex>
   );
 }
