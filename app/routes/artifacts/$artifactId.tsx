@@ -1,7 +1,7 @@
 import { Outlet } from 'remix';
 import { Flex } from '~/rest/components/Flex';
 import { H2 } from '~/rest/components/Typography/Header';
-import { HeaderContainer } from '~/routes/index/Content/HeaderContainer';
+import { HeaderContainer } from '~/rest/pages/index/Content/HeaderContainer';
 
 export default function ArtifactId() {
   return (

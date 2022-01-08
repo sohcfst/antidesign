@@ -3,10 +3,10 @@ import { Outlet } from 'remix';
 import { useLoaderData } from 'remix';
 
 import { Flex } from '~/rest/components/Flex';
-import { ButtonContainer } from '~/routes/index/ButtonContainer';
-import { HeaderContainer } from '~/routes/index/Content/HeaderContainer';
+import { ButtonContainer } from '~/rest/pages/index/ButtonContainer';
+import { HeaderContainer } from '~/rest/pages/index/Content/HeaderContainer';
 
-import { GlobalProvder } from '~/routes/index/GlobalProvider';
+import { GlobalProvder } from '~/rest/pages/index/GlobalProvider';
 import { loader } from './loader/loader.server';
 
 export default function SystemIndexRoute() {

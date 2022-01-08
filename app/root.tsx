@@ -6,10 +6,10 @@ import { AllThatBullShit } from './routes/root/AllThatBullshit';
 import { Outlet } from 'remix';
 
 import { NoiseBackground } from '~/rest/components/Noise';
-import { ButtonContainer } from '~/routes/index/ButtonContainer';
+import { ButtonContainer } from '~/rest/pages/index/ButtonContainer';
 
-import { GlobalProvder } from '~/routes/index/GlobalProvider';
-import { NavContainer } from './routes/index/Content/NavContainer';
+import { GlobalProvder } from '~/rest/pages/index/GlobalProvider';
+import { NavContainer } from './rest/pages/index/Content/NavContainer';
 import { ContentFlex, SidebarFlex, SiteFlex } from './routes/root/Root.styled';
 
 export const meta: MetaFunction = () => {

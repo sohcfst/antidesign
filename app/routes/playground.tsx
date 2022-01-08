@@ -2,7 +2,7 @@ import { Outlet } from 'remix';
 
 import { Flex } from '~/rest/components/Flex';
 
-import { HeaderContainer } from '~/routes/index/Content/HeaderContainer';
+import { HeaderContainer } from '~/rest/pages/index/Content/HeaderContainer';
 
 export default function PlaygroundRoute() {
   return (

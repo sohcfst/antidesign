@@ -3,7 +3,7 @@ import { Flex } from '~/rest/components/Flex';
 import { useViewportScroll } from 'framer-motion';
 import { H2 } from '~/rest/components/Typography/Header';
 
-import { GG_BRIDGE } from '~/routes/index/Content/images';
+import { GG_BRIDGE } from '~/rest/pages/index/Content/images';
 import { Inspector } from '../Inspector';
 import { MemoryV2 } from './Memory';
 import { Image } from '../Image';
