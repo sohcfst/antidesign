@@ -19,18 +19,18 @@ export const StyledLinky = styled(Link, {
 });
 
 export enum Routes {
-  playground = 'playground',
-  sonicdreams = 'sonicdreams',
-  system = 'system',
-  artifacts = 'artifacts',
+  playground = '/playground',
+  sonicdreams = '/sonicdreams',
+  system = '/system',
+  artifacts = '/artifacts',
   index = '/',
 }
 
-const rootPaths = ['/', '/artifacts', '/playground', '/system'];
+const rootPaths = ['artifacts', 'playground', 'system'];
 
 const artifactPaths = ['/_001', '/_002', '/_003'];
 
-const playgroundPaths = ['/', '/system-nostalgia', '/meta-inspector'];
+const playgroundPaths = ['/system-nostalgia', '/meta-inspector'];
 
 interface LinkTrayProps {
   title: string;
@@ -47,7 +47,7 @@ export const LinkTray = ({ title }: LinkTrayProps) => {
 
       <PathSelectorMenu route={Routes.playground} paths={playgroundPaths} />
 
-      {/* <PathSelectorMenu route={Routes.system} paths={playgroundPaths} /> */}
+      <PathSelectorMenu route={Routes.system} paths={playgroundPaths} />
     </StyledToolbar>
   );
 };

@@ -16,6 +16,14 @@ interface PathSelectorMenuProps {
   paths: string[];
 }
 
+const getURLRoute = (route: Routes) => {
+  if (route === Routes.index) {
+    return '';
+  }
+
+  return route;
+};
+
 export const PathSelectorMenu = ({ route, paths }: PathSelectorMenuProps) => {
   const isDownPress = useKeyPress('40');
 
@@ -25,9 +33,7 @@ export const PathSelectorMenu = ({ route, paths }: PathSelectorMenuProps) => {
 
   return (
     <DropdownMenu.Root>
-      <StyledDropdownTrigger id="artifact-route">
-        {route === Routes.index ? route : `/ ${route}`}
-      </StyledDropdownTrigger>
+      <StyledDropdownTrigger id="artifact-route">{route}</StyledDropdownTrigger>
 
       <StyledDropdownMenuContent
         className="pathselector-menu-content"
@@ -38,8 +44,8 @@ export const PathSelectorMenu = ({ route, paths }: PathSelectorMenuProps) => {
       >
         {paths.map((path) => {
           return (
-            <StyledDropdownMenuItem asChild key={`/${route}${path}`}>
-              <StyledLinky className="link" to={`/${route}${path}`}>
+            <StyledDropdownMenuItem asChild key={`${route}${path}`}>
+              <StyledLinky className="link" to={`${route}${path}`}>
                 {path}
               </StyledLinky>
             </StyledDropdownMenuItem>
